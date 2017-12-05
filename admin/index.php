@@ -3,146 +3,51 @@ session_start();
 include("koneksi.php");
 if(!isset($_SESSION['idadmin'])){
 ?>
-?>
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<head>
+<title>Lucid Login Form A Flat Responsive widget Template :: w3layouts</title>
+<!-- For-Mobile-Apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Lucid Login Form Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //For-Mobile-Apps -->
+<!-- Style -->
+<link rel="stylesheet" href="assets/css/stylelogin.css" type="text/css" media="all" />
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+<link href="assets/fonts/BerkshireSwash-Regular" rel="stylesheet">
 
-    <head>
+</head>
+<body>
+<div class="container">
+<h1><img src="assets/img/logopoltek.png" style="height:150px;width:150px;"></h1>
+<h1>Admin Tamu Poltek</h1>
+<center>
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Login Admin Tamu Poltek</title>
-
-        <!-- CSS -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-		    <link rel="stylesheet" href="assets/css/form-elements.css">
-        <link rel="stylesheet" href="assets/css/stylelogin.css">
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-        <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="assets/ico/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-
-    </head>
-
-    <body>
-
-        <!-- Top content -->
-        <div class="top-content">
-
-            <div class="inner-bg">
-                <div class="container">
-
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>TAMU POLTEK</strong> Login Admin</h1>
-                            <div class="description">
-                            	<p>
-	                            	Hanya admin <strong>"Tamu Poltek"</strong> yang dapat
-                                <strong>LOGIN</strong>
-                                <br>
-	                            	Welcome !
-                            	</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-5">
-                          <img src="assets/img/logopoltek.png" style="height:250px;width:250px;margin-top:80px;">
-                        </div>
-
-
-                        <div class="col-sm-1 middle-border"></div>
-                        <div class="col-sm-1"></div>
-
-                        <div class="col-sm-5">
-
-                        	<div class="form-box">
-                        		<div class="form-top">
-	                        		<div class="form-top-left">
-                                <h3>Login for our Services</h3>
-	                            		<p>Enter username and password to log on:</p>
-	                        		</div>
-	                        		<div class="form-top-right">
-	                        			<i class="fa fa-lock"></i>
-	                        		</div>
-	                            </div>
-	                            <div class="form-bottom">
-                                <form role="form" action="proseslogin.php" method="post" class="login-form">
-    				                    	<div class="form-group">
-    				                    		<label class="sr-only" for="form-username">Username</label>
-    				                        	<input type="text" name="username" placeholder="Username..." class="form-username form-control" id="form-username">
-    				                        </div>
-    				                        <div class="form-group">
-    				                        	<label class="sr-only" for="form-password">Password</label>
-    				                        	<input type="password" name="password" placeholder="Password..." class="form-password form-control" id="form-password">
-    				                        </div>
-    				                       <button type="submit" class="btn" name="signin">Sign in!</button>
-    				                    </form>
-			                    </div>
-                        	</div>
-                          <div class="social-login">
-    	                        	<h3>...or login with:</h3>
-    	                        	<div class="social-login-buttons">
-    		                        	<a class="btn btn-link-2" href="#">
-    		                        		<i class="fa fa-facebook"></i> Facebook
-    		                        	</a>
-    		                        	<a class="btn btn-link-2" href="#">
-    		                        		<i class="fa fa-twitter"></i> Twitter
-    		                        	</a>
-    		                        	<a class="btn btn-link-2" href="#">
-    		                        		<i class="fa fa-google-plus"></i> Google Plus
-    		                        	</a>
-    	                        	</div>
-    	                        </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Footer -->
-        <footer>
-        	<div class="container">
-        		<div class="row">
-
-        			<div class="col-sm-8 col-sm-offset-2">
-        				<div class="footer-border"></div>
-        				<p>Made by <strong>Huge Team</strong></a>
-        					having a lot of fun. <i class="fa fa-smile-o"></i></p>
-        			</div>
-
-        		</div>
-        	</div>
-        </footer>
-
-        <!-- Javascript -->
-        <script src="assets/js/jquery-1.11.1.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.backstretch.min.js"></script>
-        <script src="assets/js/scripts.js"></script>
-
-        <!--[if lt IE 10]>
-            <script src="assets/js/placeholder.js"></script>
-        <![endif]-->
-
-    </body>
-
+</center>
+	<div class="signin">
+     	<form role="form" action="proseslogin.php" method="post" class="login-form">
+	      	<input type="text" name="username" class="user" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}" />
+	      	<input type="password" name="password" class="pass" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" />
+	      	<label>
+		  		<input type="checkbox" value="Remember-Me" /> Remember Me?
+		  	</label>
+          	<input type="submit" name="signin" value="LOGIN" />
+	 	</form>
+	</div>
+</div>
+<div class="footer">
+     <p>Copyright &copy; 2017 TamuPoltek | Design by <a href="">Huge Team</a></p>
+</div>
+</body>
 </html>
 <?php } else {
 	echo "<script language=\"javascript\">\n";

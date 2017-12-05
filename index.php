@@ -101,7 +101,7 @@ $id_user = nomor();
                 </p>
             </div>
             <div data-lazy-background="images/slides/2.jpg">
-                <h3 data-pos="['75%', '-40%', '58%', '42%']" data-duration="700" data-effect="move" class="wow fadeInDown">
+                <h3 data-pos="['75%', '-40%', '58%', '42%']" data-duration="700" data-effect="move" class="wow fadeInRight">
                     Tamu Poltek
                 </h3> <br>
                 <p data-pos="['75%', '110%', '75%', '36%']" data-duration="700" data-effect="move" class="wow fadeInLeft">
