@@ -93,18 +93,18 @@ $id_user = nomor();
     <div class="banner" id="banner">
 	<div class="slider-banner">
             <div data-lazy-background="images/slides/1.jpg">
-                <h3 data-pos="['68%', '42%', '28%', '42%']" data-duration="700" data-effect="move">
+                <h3 data-pos="['68%', '42%', '28%', '42%']" data-duration="700" data-effect="move" class="wow fadeInDown">
                     <img src="images/logopoltek.png" style="height:200px;width:200px;">
                 </h3> <br>
-                <p data-pos="['75%', '110%', '75%', '38%']" data-duration="700" data-effect="move">
+                <p data-pos="['75%', '110%', '75%', '38%']" data-duration="700" data-effect="move" class="wow fadeInLeft">
                       Taman Usaha Politeknik Negeri Jember
                 </p>
             </div>
             <div data-lazy-background="images/slides/2.jpg">
-                <h3 data-pos="['75%', '-40%', '58%', '42%']" data-duration="700" data-effect="move">
+                <h3 data-pos="['75%', '-40%', '58%', '42%']" data-duration="700" data-effect="move" class="wow fadeInDown">
                     Tamu Poltek
                 </h3> <br>
-                <p data-pos="['75%', '110%', '75%', '36%']" data-duration="700" data-effect="move">
+                <p data-pos="['75%', '110%', '75%', '36%']" data-duration="700" data-effect="move" class="wow fadeInLeft">
                     Lorem ipsum dolor sitamet consectetur adipiscing
                 </p>
             </div>
@@ -128,10 +128,10 @@ $id_user = nomor();
 <section id="services" class="services service-section">
   <div class="container">
   <div class="section-header">
-                <h2 class="wow fadeInDown animated">Our Services</h2>
-                <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
+                <h2 class="wow fadeInDown">Our Services</h2>
+                <p class="wow fadeInDown">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
             </div>
-    <div class="row">
+    <div class="row wow fadeInUp">
       <div class="col-md-4 col-sm-6 services text-center"> <span class="icon icon-strategy"></span>
         <div class="services-content">
           <h5>Designing</h5>
@@ -175,7 +175,7 @@ $id_user = nomor();
 <!--About-->
 <section id="content-3-10" class="content-block data-section nopad content-3-10">
 	<div class="image-container col-sm-6 col-xs-12 pull-left">
-		<div class="background-image-holder">
+		<div class="background-image-holder wow fadeInLeft">
 
 		</div>
 	</div>
@@ -183,14 +183,14 @@ $id_user = nomor();
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-6 col-xs-12 content">
-				<div class="editContent">
+				<div class="editContent wow fadeInDown">
 					<h3>About Tamu Poltek</h3>
 				</div>
-				<div class="editContent">
+				<div class="editContent wow fadeInDown">
 					<p>Taman usaha Politeknik Negeri Jember atau yang lebih sering dikenal dengan sebutan Tamu Poltek merupakan media atau sarana untuk mewadai inspirasi kewirausahaan mahasiswa.</p>
 					<p></p>
 				</div>
-				<a href="aboutus.php" class="btn btn-outline btn-outline outline-dark">Our Gallery</a>
+				<a href="aboutus.php" class="wow fadeInLeft btn btn-outline btn-outline outline-dark">Our Gallery</a>
 			</div>
 		</div><!-- /.row-->
 	</div><!-- /.container -->
