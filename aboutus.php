@@ -1,36 +1,3 @@
-<?php
-session_start();
-include("user/koneksi.php");
-?>
-<?php
-function nomor() {
-  include "user/koneksi.php";
-	$sql = "SELECT id_user FROM user ORDER BY id_user DESC LIMIT 0,1";
-	$query = mysqli_query($connect,$sql) or die (mysqli_error($query));
-	list ($no_temp) = mysqli_fetch_row($query);
-
-	if ($no_temp == '') {
-		$no_urut = 'u0001';
-		} else {
-		$jum = substr($no_temp,1,5);
-		$jum++;
-		if($jum <= 99) {
-			$no_urut = 'u000' . $jum;
-		} elseif ($jum <= 999) {
-			$no_urut = 'u00' . $jum;
-		} elseif ($jum <= 9999) {
-			$no_urut = 'u0' . $jum;
-		} elseif ($jum <= 99999) {
-			$no_urut = 'u' . $jum;
-		} else {
-			die("Nomor urut melebih batas");
-		}
-	}
-		return $no_urut;
-}
-$id_user = nomor();
-?>
-
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -67,23 +34,7 @@ $id_user = nomor();
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#teams">Our Team</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
-        <?php if (!isset($_SESSION['id'])) { ?>
           <li><a href="#" data-toggle="modal" data-target="#login">Login</a></li>
-        <?php } else { ?>
-            <li class="dropdown">
-            <?php
-            $ceknama=mysqli_query($connect,"select * from user where id_user='$_SESSION[id]' ");
-            $ceknamalagi=mysqli_fetch_array($ceknama);
-            ?>
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $ceknamalagi['nama_user'];?>
-                <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="user/userprof.php">Account</a></li>
-                  <li><a href="user/logout.php">Sign Out</a></li>
-                </ul>
-            </li>
-            <?php } ?>
-
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -190,7 +141,7 @@ $id_user = nomor();
 					<p>Taman usaha Politeknik Negeri Jember atau yang lebih sering dikenal dengan sebutan Tamu Poltek merupakan media atau sarana untuk mewadai inspirasi kewirausahaan mahasiswa.</p>
 					<p></p>
 				</div>
-				<a href="aboutus.php" class="btn btn-outline btn-outline outline-dark">Our Gallery</a>
+				<a href="#gallery" class="btn btn-outline btn-outline outline-dark">Our Gallery</a>
 			</div>
 		</div><!-- /.row-->
 	</div><!-- /.container -->
