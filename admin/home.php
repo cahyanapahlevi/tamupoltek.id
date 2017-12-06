@@ -72,9 +72,6 @@ if(isset($_SESSION['idadmin'])){
                 <li <?php if($_GET['home']=='event'){echo "class='active'";}?>> <a href="home.php?home=event">
                   <i class="ti-alarm-clock"></i><p>Event Date</p></a>
                 </li>
-                <li <?php if($_GET['home']=='notiv'){echo "class='active'";}?>> <a href="home.php?home=notiv">
-                  <i class="ti-bell"></i><p>Notifications</p></a>
-                </li>
 					</ul>
 				<ul class="nav">
 				<li <?php if($_GET['home']=='logout'){echo "class='active'";}?>>
@@ -154,8 +151,6 @@ if(isset($_SESSION['idadmin'])){
 									case 'report' : include "menu/report.php";
 										break;
 									case 'stand' : include "menu/stand.php";
-										break;
-									case 'notiv' : include "menu/notifications.php";
 										break;
 									case 'logout' : include "menu/logout.php";
 										break;
