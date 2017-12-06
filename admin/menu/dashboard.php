@@ -39,7 +39,7 @@ include "./koneksi.php";
             <div class="content">
                 <div class="row">
                   <?php
-                  $sql2 = "SELECT * FROM contactus";
+                  $sql2 = "SELECT * FROM kritiksaran";
                   $query = mysqli_query($connect,$sql2);
                   $count = mysqli_num_rows($query);
                   ?>
@@ -55,7 +55,7 @@ include "./koneksi.php";
                             <?php echo $count;?>
                         </div>
                     </div>
-                  </a>
+
                 </div>
                 <div class="footer">
                     <hr />
@@ -63,6 +63,7 @@ include "./koneksi.php";
                         <i class="ti-calendar"></i> Last day
                     </div>
                 </div>
+                </a>
             </div>
         </div>
     </div>
