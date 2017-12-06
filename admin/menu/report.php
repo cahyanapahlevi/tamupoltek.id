@@ -16,12 +16,12 @@
 
               <tbody>
                   <?php
-                  $query = mysqli_query($connect,"SELECT * FROM `contactus`");
+                  $query = mysqli_query($connect,"SELECT * FROM `kritiksaran`");
                   while($data = mysqli_fetch_array($query)){
                   ?>
 
                   <tr>
-                    <td><?php echo $data['id_contact']?></td>
+                    <td><?php echo $data['id_kritik']?></td>
                     <td><?php echo $data['nama']?></td>
                     <td><?php echo $data['email']?></td>
                     <td><?php echo $data['message']?></td>

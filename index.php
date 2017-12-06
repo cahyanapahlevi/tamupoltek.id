@@ -92,7 +92,7 @@ $id_user = nomor();
   <!-- banner text -->
     <div class="banner" id="banner">
 	<div class="slider-banner">
-            
+
             <div data-lazy-background="images/slides/13.jpg">
                 <h3 data-pos="['75%', '-40%', '50%', '35%']" data-duration="700" data-effect="move">
                 TAMU POLTEK
@@ -106,7 +106,7 @@ $id_user = nomor();
                    TAMU POLTEK
                 </h3> <br>
                 <p data-pos="['60%', '30%', '75%', '38%']" data-duration="700" data-effect="move">
-                    Taman Usaha Politeknik Negeri Jember  
+                    Taman Usaha Politeknik Negeri Jember
                 </p>
             </div>
         <div data-lazy-background="images/slides/12.jpg">
@@ -114,7 +114,7 @@ $id_user = nomor();
                    TAMU POLTEK
                 </h3> <br>
                 <p data-pos="['60%', '30%', '75%', '38%']" data-duration="700" data-effect="move">
-                     Taman Usaha Politeknik Negeri Jember  
+                     Taman Usaha Politeknik Negeri Jember
                 </p>
             </div>
 
@@ -137,10 +137,10 @@ $id_user = nomor();
 <section id="services" class="services service-section">
   <div class="container">
   <div class="section-header">
-                <h2 class="wow fadeInDown animated">Our Services</h2>
-                <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
+                <h2 class="wow fadeInDown">Our Services</h2>
+                <p class="wow fadeInDown">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
             </div>
-    <div class="row">
+    <div class="row wow fadeInUp">
       <div class="col-md-4 col-sm-6 services text-center"> <span class="icon icon-strategy"></span>
         <div class="services-content">
           <h5>Designing</h5>
@@ -497,12 +497,12 @@ semper aliquam quis mattis consectetur adipiscing elit.." </h1>
       <div class="col-md-8 col-md-offset-2 conForm">
         <div id="message"></div>
         <form method="post" action="user/contact.php" >
-          
+
           <input name="nama"  type="text" required class="col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Your name..." >
           <input name="email"  type="email" required class=" col-xs-12 col-sm-12 col-md-12 col-lg-12 noMarr" placeholder="Email Address..." >
           <textarea name="message"  cols="" rows=""  required class="col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Message..."></textarea>
           <input type="submit" name="send" class="btn btn-info btn-fill btn-wd" value="send">
-            
+
           <div id="simple-msg"></div>
         </form>
       </div>
@@ -656,6 +656,10 @@ semper aliquam quis mattis consectetur adipiscing elit.." </h1>
 <script src="js/main.js"></script>
 <script type="text/javascript" src="js/jquery.contact.js"></script>
 <script type="text/javascript" src="js/jquery.devrama.slider.min-0.9.4.js"></script>
+<script src="js/wow.min.js"></script>
+<script>
+              new WOW().init();
+              </script>
 <script type="text/javascript">
 		$(document).ready(function(){
 			$('.slider-banner').DrSlider({
