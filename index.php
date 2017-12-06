@@ -92,20 +92,29 @@ $id_user = nomor();
   <!-- banner text -->
     <div class="banner" id="banner">
 	<div class="slider-banner">
-            <div data-lazy-background="images/slides/1.jpg">
-                <h3 data-pos="['68%', '42%', '28%', '42%']" data-duration="700" data-effect="move" class="wow fadeInDown">
-                    <img src="images/logopoltek.png" style="height:200px;width:200px;">
+            
+            <div data-lazy-background="images/slides/13.jpg">
+                <h3 data-pos="['75%', '-40%', '50%', '35%']" data-duration="700" data-effect="move">
+                TAMU POLTEK
                 </h3> <br>
-                <p data-pos="['75%', '110%', '75%', '38%']" data-duration="700" data-effect="move" class="wow fadeInLeft">
-                      Taman Usaha Politeknik Negeri Jember
+                <p data-pos="['60%', '30%', '75%', '38%']" data-duration="700" data-effect="move">
+                    Taman Usaha Politeknik Negeri Jember
                 </p>
             </div>
-            <div data-lazy-background="images/slides/2.jpg">
-                <h3 data-pos="['75%', '-40%', '58%', '42%']" data-duration="700" data-effect="move" class="wow fadeInRight">
-                    Tamu Poltek
+        <div data-lazy-background="images/slides/11.jpg">
+                <h3 data-pos="['75%', '-40%', '50%', '35%']" data-duration="700" data-effect="move">
+                   TAMU POLTEK
                 </h3> <br>
-                <p data-pos="['75%', '110%', '75%', '36%']" data-duration="700" data-effect="move" class="wow fadeInLeft">
-                    Lorem ipsum dolor sitamet consectetur adipiscing
+                <p data-pos="['60%', '30%', '75%', '38%']" data-duration="700" data-effect="move">
+                    Taman Usaha Politeknik Negeri Jember  
+                </p>
+            </div>
+        <div data-lazy-background="images/slides/12.jpg">
+                <h3 data-pos="['75%', '-40%', '50%', '35%']" data-duration="700" data-effect="move">
+                   TAMU POLTEK
+                </h3> <br>
+                <p data-pos="['60%', '30%', '75%', '38%']" data-duration="700" data-effect="move">
+                     Taman Usaha Politeknik Negeri Jember  
                 </p>
             </div>
 
@@ -128,10 +137,10 @@ $id_user = nomor();
 <section id="services" class="services service-section">
   <div class="container">
   <div class="section-header">
-                <h2 class="wow fadeInDown">Our Services</h2>
-                <p class="wow fadeInDown">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
+                <h2 class="wow fadeInDown animated">Our Services</h2>
+                <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
             </div>
-    <div class="row wow fadeInUp">
+    <div class="row">
       <div class="col-md-4 col-sm-6 services text-center"> <span class="icon icon-strategy"></span>
         <div class="services-content">
           <h5>Designing</h5>
@@ -175,7 +184,7 @@ $id_user = nomor();
 <!--About-->
 <section id="content-3-10" class="content-block data-section nopad content-3-10">
 	<div class="image-container col-sm-6 col-xs-12 pull-left">
-		<div class="background-image-holder wow fadeInLeft">
+		<div class="background-image-holder">
 
 		</div>
 	</div>
@@ -183,14 +192,14 @@ $id_user = nomor();
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-6 col-xs-12 content">
-				<div class="editContent wow fadeInDown">
+				<div class="editContent">
 					<h3>About Tamu Poltek</h3>
 				</div>
-				<div class="editContent wow fadeInDown">
+				<div class="editContent">
 					<p>Taman usaha Politeknik Negeri Jember atau yang lebih sering dikenal dengan sebutan Tamu Poltek merupakan media atau sarana untuk mewadai inspirasi kewirausahaan mahasiswa.</p>
 					<p></p>
 				</div>
-				<a href="aboutus.php" class="wow fadeInLeft btn btn-outline btn-outline outline-dark">Our Gallery</a>
+				<a href="#gallery" class="btn btn-outline btn-outline outline-dark">Our Gallery</a>
 			</div>
 		</div><!-- /.row-->
 	</div><!-- /.container -->
@@ -487,11 +496,13 @@ semper aliquam quis mattis consectetur adipiscing elit.." </h1>
     <div class="row">
       <div class="col-md-8 col-md-offset-2 conForm">
         <div id="message"></div>
-        <form method="post" action="user/contact.php" name="cform" id="cform">
-          <input name="name" id="name" type="text" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Your name..." >
-          <input name="email" id="email" type="email" required class=" col-xs-12 col-sm-12 col-md-12 col-lg-12 noMarr" placeholder="Email Address..." >
-          <textarea name="message" id="message" cols="" rows="" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Message..."></textarea>
-          <input type="submit" id="submit" name="send" class="submitBnt" value="Send">
+        <form method="post" action="user/contact.php" >
+          
+          <input name="nama"  type="text" required class="col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Your name..." >
+          <input name="email"  type="email" required class=" col-xs-12 col-sm-12 col-md-12 col-lg-12 noMarr" placeholder="Email Address..." >
+          <textarea name="message"  cols="" rows=""  required class="col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Message..."></textarea>
+          <input type="submit" name="send" class="btn btn-info btn-fill btn-wd" value="send">
+            
           <div id="simple-msg"></div>
         </form>
       </div>
@@ -517,7 +528,7 @@ semper aliquam quis mattis consectetur adipiscing elit.." </h1>
     			Jawa Timur 68121<br>
     			<abbr title="Phone">Tel:</abbr> (604) 555-4321
     		</address>
-			  © 2017 INKUBtor KWU. Designed by Huge-team</a>
+			  © 2018 Company Name. Template by <a target="_blank" href="http://webthemez.com/interior-design/" title="Bootstrap Themes and HTML Templates">WebThemez.com</a>
 	 </div>
 	 </div>
 </div>
@@ -645,10 +656,6 @@ semper aliquam quis mattis consectetur adipiscing elit.." </h1>
 <script src="js/main.js"></script>
 <script type="text/javascript" src="js/jquery.contact.js"></script>
 <script type="text/javascript" src="js/jquery.devrama.slider.min-0.9.4.js"></script>
-<script src="js/wow.min.js"></script>
-              <script>
-              new WOW().init();
-              </script>
 <script type="text/javascript">
 		$(document).ready(function(){
 			$('.slider-banner').DrSlider({
