@@ -65,11 +65,12 @@ $id_user = nomor();
           <li><a href="#services">Services</a></li>
           <li><a href="#content-3-10">About</a></li>
           <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#teams">Our Team</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
         <?php if (!isset($_SESSION['id'])) { ?>
+          <li><a href="#" data-toggle="modal" data-target="#login">Booking Stand</a></li>
           <li><a href="#" data-toggle="modal" data-target="#login">Login</a></li>
         <?php } else { ?>
+          <li><a href="#booking">Booking Stand</a></li>
             <li class="dropdown">
             <?php
             $ceknama=mysqli_query($connect,"select * from user where id_user='$_SESSION[id]' ");
@@ -82,6 +83,7 @@ $id_user = nomor();
                   <li><a href="user/logout.php">Sign Out</a></li>
                 </ul>
             </li>
+
             <?php } ?>
 
           <li><a href="#contact">Contact</a></li>
@@ -184,7 +186,7 @@ $id_user = nomor();
 <!--About-->
 <section id="content-3-10" class="content-block data-section nopad content-3-10">
 	<div class="image-container col-sm-6 col-xs-12 pull-left">
-		<div class="background-image-holder">
+		<div class="background-image-holder wow fadeInLeft">
 
 		</div>
 	</div>
@@ -192,14 +194,14 @@ $id_user = nomor();
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-6 col-xs-12 content">
-				<div class="editContent">
+				<div class="editContent wow fadeInDown">
 					<h3>About Tamu Poltek</h3>
 				</div>
-				<div class="editContent">
+				<div class="editContent wow fadeInDown">
 					<p>Taman usaha Politeknik Negeri Jember atau yang lebih sering dikenal dengan sebutan Tamu Poltek merupakan media atau sarana untuk mewadai inspirasi kewirausahaan mahasiswa.</p>
 					<p></p>
 				</div>
-				<a href="#gallery" class="btn btn-outline btn-outline outline-dark">Our Gallery</a>
+				<a href="#gallery" class="btn btn-outline btn-outline outline-dark wow fadeInLeft">Our Gallery</a>
 			</div>
 		</div><!-- /.row-->
 	</div><!-- /.container -->
@@ -305,7 +307,7 @@ $id_user = nomor();
 </section>
 <!-- gallery section -->
 <!-- our team section -->
-<section id="teams" class="section teams">
+<section id="booking" class="section teams">
   <div class="container">
       <div class="section-header">
                 <h2 class="wow fadeInDown animated">Our Team</h2>
@@ -490,10 +492,10 @@ semper aliquam quis mattis consectetur adipiscing elit.." </h1>
 <section id="contact" class="section">
   <div class="container">
       <div class="section-header">
-                <h2 class="wow fadeInDown animated">Contact Us</h2>
-                <p class="wow fadeInDown animated">Kritik dan Saran Anda berguna untuk membangun Tamu Poltek <br> menjadi Lebih Baik</p>
+                <h2 class="wow fadeInDown">Contact Us</h2>
+                <p class="wow fadeInDown">Kritik dan Saran Anda berguna untuk membangun Tamu Poltek <br> menjadi Lebih Baik</p>
             </div>
-    <div class="row">
+    <div class="row wow fadeInLeft">
       <div class="col-md-8 col-md-offset-2 conForm">
         <div id="message"></div>
         <form method="post" action="user/contact.php" >
