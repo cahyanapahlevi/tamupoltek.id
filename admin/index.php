@@ -13,7 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Lucid Login Form A Flat Responsive widget Template :: w3layouts</title>
+<title>Tamu Poltek</title>
 <!-- For-Mobile-Apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -24,6 +24,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link rel="stylesheet" href="assets/css/stylelogin.css" type="text/css" media="all" />
 <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
 <link href="assets/fonts/BerkshireSwash-Regular" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/img/cart.png">
 
 </head>
 <body>

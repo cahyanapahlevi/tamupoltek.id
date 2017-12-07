@@ -83,7 +83,7 @@ h1 {
 .signin {
     width: 25%;
     margin: 20px auto 0;
-    background-color: rgba(56, 49, 49, 0.13);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 40px;
     border: 2px ridge rgba(238, 238, 238, 0.13);
     border-radius: 5px;
