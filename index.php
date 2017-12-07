@@ -79,7 +79,7 @@ $id_user = nomor();
               <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $ceknamalagi['nama_user'];?>
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="user/userprof.php">Account</a></li>
+                  <li><a href="#" data-toggle="modal" data-target="#akun">Account</a></li>
                   <li><a href="user/logout.php">Sign Out</a></li>
                 </ul>
             </li>
@@ -380,63 +380,143 @@ $id_user = nomor();
                 <h2 class="wow fadeInDown animated">Pricing</h2>
                 <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
             </div>
-         <div class="row">
-            <div class="col-md-3 col-md-offset-1">
-                <div class="table">
-                    <h3 class="editContent">Basic</h3>
-                    <h2 class="editContent">$13</h2>
-                    <p class="editContent">Per Month</p>
-                    <ul class="table-content">
-                        <li class="editContent"><i class="fa fa-hdd-o"></i> 10 GB Storage</li>
-                        <li class="editContent"><i class="fa fa-pie-chart"></i> 500 GB Bandwidth</li>
-                        <li class="editContent"><i class="fa fa-envelope-o"></i> Email Support</li>
-                        <li class="editContent"><i class="fa fa-cogs"></i> 24x7 Support</li>
-                    </ul>
+            <div class="row">
+                 <nav id="filter" class="col-md-12 text-center">
+                     <ul>
+                         <li><a href="#" class="current btn-theme btn-small" data-filter="*">All</a></li>
+                         <li><a href="#" class="btn-theme btn-small" data-filter=".webdesign">Web Design</a></li>
+                         <li><a href="#" class="btn-theme btn-small" data-filter=".photography">Photography</a></li>
+                         <li><a href="#" class="btn-theme btn-small" data-filter=".print">Print</a></li>
+                     </ul>
+                 </nav>
+                 <div class="col-md-12">
+                     <div class="row">
+                         <div class="portfolio-items isotopeWrapper clearfix" id="3">
 
-                    <div class="text-center text-uppercase">
-                        <a href="#" class="btn btn-default-green-transparent-tiny editContent">Signup Now</a>
-                    </div>
-                </div>
-            </div>
+                             <article class="col-sm-4 isotopeItem webdesign">
+                                 <div class="portfolio-item">
+                                     <img src="images/portfolio/img1.jpg" alt="" />
+                                     <div class="portfolio-desc align-center">
+                                         <div class="folio-info">
+                                             <a href="images/portfolio/img1.jpg" class="fancybox">
+                                                 <h5>Project Name</h5>
+                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </article>
 
-            <div class="col-md-4">
-                <div class="table long-table">
-                    <h3 class="editContent">Premium</h3>
-                    <h2 class="editContent">$23</h2>
-                    <p class="editContent">Per Month</p>
-                    <ul class="table-content">
-                        <li class="editContent"><i class="fa fa-hdd-o"></i> 10 GB Storage</li>
-                        <li class="editContent"><i class="fa fa-pie-chart"></i> 500 GB Bandwidth</li>
-                        <li class="editContent"><i class="fa fa-envelope-o"></i> Email Support</li>
-                        <li class="editContent"><i class="fa fa-cogs"></i> 24x7 Support</li>
-                    </ul>
+                             <article class="col-sm-4 isotopeItem photography">
+                                 <div class="portfolio-item">
+                                     <img src="images/portfolio/img2.jpg" alt="" />
+                                     <div class="portfolio-desc align-center">
+                                         <div class="folio-info">
+                                             <a href="images/portfolio/img2.jpg" class="fancybox">
+                                                 <h5>Project Name</h5>
+                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </article>
 
-                    <div class="text-center text-uppercase">
-                        <a href="#" class="btn btn-default-blue-tiny editContent">Signup Now</a>
-                    </div>
-                </div>
 
-            </div>
+                             <article class="col-sm-4 isotopeItem photography">
+                                 <div class="portfolio-item">
+                                     <img src="images/portfolio/img3.jpg" alt="" />
+                                     <div class="portfolio-desc align-center">
+                                         <div class="folio-info">
+                                             <a href="images/portfolio/img3.jpg" class="fancybox">
+                                                 <h5>Project Name</h5>
+                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </article>
 
-            <div class="col-md-3">
-                <div class="table">
-                    <h3 class="editContent">Developer</h3>
-                    <h2 class="editContent">$33</h2>
-                    <p class="editContent">Per Month</p>
-                    <ul class="table-content">
-                        <li class="editContent"><i class="fa fa-hdd-o"></i> 10 GB Storage</li>
-                        <li class="editContent"><i class="fa fa-pie-chart"></i> 500 GB Bandwidth</li>
-                        <li class="editContent"><i class="fa fa-envelope-o"></i> Email Support</li>
-                        <li class="editContent"><i class="fa fa-cogs"></i> 24x7 Support</li>
-                    </ul>
+                             <article class="col-sm-4 isotopeItem print">
+                                 <div class="portfolio-item">
+                                     <img src="images/portfolio/img4.jpg" alt="" />
+                                     <div class="portfolio-desc align-center">
+                                         <div class="folio-info">
+                                             <a href="images/portfolio/img4.jpg" class="fancybox">
+                                                 <h5>Project Name</h5>
+                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </article>
 
-                    <div class="text-center text-uppercase">
-                        <a href="#" class="btn btn-default-green-transparent-tiny editContent">Signup Now</a>
-                    </div>
-                </div>
+                             <article class="col-sm-4 isotopeItem photography">
+                                 <div class="portfolio-item">
+                                     <img src="images/portfolio/img5.jpg" alt="" />
+                                     <div class="portfolio-desc align-center">
+                                         <div class="folio-info">
+                                             <a href="images/portfolio/img5.jpg" class="fancybox">
+                                                 <h5>Project Name</h5>
+                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </article>
 
-            </div>
-         </div>
+                             <article class="col-sm-4 isotopeItem webdesign">
+                                 <div class="portfolio-item">
+                                     <img src="images/portfolio/img6.jpg" alt="" />
+                                     <div class="portfolio-desc align-center">
+                                         <div class="folio-info">
+                                             <a href="images/portfolio/img6.jpg" class="fancybox">
+                                                 <h5>Project Name</h5>
+                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </article>
+
+                             <article class="col-sm-4 isotopeItem print">
+                                 <div class="portfolio-item">
+                                     <img src="images/portfolio/img7.jpg" alt="" />
+                                     <div class="portfolio-desc align-center">
+                                         <div class="folio-info">
+                                             <a href="images/portfolio/img7.jpg" class="fancybox">
+                                                 <h5>Project Name</h5>
+                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </article>
+
+                             <article class="col-sm-4 isotopeItem photography">
+                                 <div class="portfolio-item">
+                                     <img src="images/portfolio/img8.jpg" alt="" />
+                                     <div class="portfolio-desc align-center">
+                                         <div class="folio-info">
+                                             <a href="images/portfolio/img8.jpg" class="fancybox">
+                                                 <h5>Project Name</h5>
+                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </article>
+
+                             <article class="col-sm-4 isotopeItem print">
+                                 <div class="portfolio-item">
+                                     <img src="images/portfolio/img9.jpg" alt="" />
+                                     <div class="portfolio-desc align-center">
+                                         <div class="folio-info">
+                                             <a href="images/portfolio/img9.jpg" class="fancybox">
+                                                 <h5>Project Name</h5>
+                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </article>
+                         </div>
+
+                     </div>
+
+
+                 </div>
+             </div>
     </div>
 </section>
 <!-- Testimonials section -->
@@ -647,6 +727,184 @@ semper aliquam quis mattis consectetur adipiscing elit.." </h1>
   </div>
 </div>
 
+<?php
+$ceknama=mysqli_query($connect,"select * from user where id_user='$_SESSION[id]' ");
+$ceknamalagi=mysqli_fetch_array($ceknama);
+?>
+<div class="modal fade bs-modal-md" id="akun" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="row">
+        <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+          <A href="edit.html" >Edit Profile</A>
+          <A href="edit.html" >Logout</A>
+         <br>
+  <p class=" text-info">May 05,2014,03:00 pm </p>
+        </div>
+          <div class="col-xs-12" >
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title"><?php echo $ceknamalagi['nama_user'];?></h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-3 col-lg-3 " align="center">
+                  <img src="" class="img-circle img-responsive fa fa-user" >
+                  </div>
+                  <div class=" col-md-9 col-lg-9 ">
+                    <table class="table table-user-information">
+                      <tbody>
+                        <tr>
+                          <td>Nama</td>
+                          <td><?php echo $ceknamalagi['nama_user'];?></td>
+                        </tr>
+                        <tr>
+                          <td>Email</td>
+                          <td><?php echo $ceknamalagi['email_user'];?></td>
+                        </tr>
+                        <tr>
+                          <td>Password</td>
+                          <td><?php echo $ceknamalagi['pass_user'];?></td>
+                        </tr>
+                        <tr>
+                          <td>Phone</td>
+                          <td><?php echo $ceknamalagi['phone_user'];?></td>
+                        </tr>
+                        <tr>
+                          <td>Home Address</td>
+                          <td><?php echo $ceknamalagi['alamat_user'];?></td>
+                        </tr>
+                        <tr>
+                          <td>Nama Usaha</td>
+                          <td><?php echo $ceknamalagi['nama_usaha'];?></td>
+                        </tr>
+                          <td>Jenis Usaha</td>
+                          <td><?php echo $ceknamalagi['jenis_usaha'];?>
+                        </td>
+                      </tr>
+                        <td>Pekerjaan</td>
+                        <td><?php echo $ceknamalagi['pekerjaan'];?>
+                      </td>
+
+                      </tbody>
+                    </table>
+
+                    <a href="#" data-toggle="modal" data-target="#editakun" class="btn btn-primary">Edit Profile</a>
+                    <a href="#booking" class="btn btn-primary">Booking</a>
+                  </div>
+                </div>
+              </div>
+                   <div class="panel-footer">
+                          <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                          <span class="pull-right">
+                              <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                              <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                          </span>
+                      </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bs-modal-md" id="editakun" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="row">
+        <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+          <A href="edit.html" >Edit Profile</A>
+          <A href="edit.html" >Logout</A>
+         <br>
+  <p class=" text-info">May 05,2014,03:00 pm </p>
+        </div>
+          <div class="col-xs-12" >
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title"><?php echo $ceknamalagi['nama_user'];?></h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-3 col-lg-3 " align="center">
+                  <img src="" class="img-circle img-responsive">
+                  <i class="glyphicon glyphicon-user"></i>
+                  </div>
+                  <form class="form-horizontal" action="user/edituser.php" method="post">
+                  <div class=" col-md-9 col-lg-9 ">
+                    <table class="table table-user-information">
+                      <tbody>
+                        <tr>
+                          <td>Nama</td>
+                          <td>
+                          <input id="Email" name="name" class="form-control" type="text" placeholder="" value="<?php echo $ceknamalagi['nama_user'];?>" class="input-large" required="">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Email</td>
+                          <td>
+                            <input id="Email" name="email" class="form-control" type="text" placeholder="" value="<?php echo $ceknamalagi['email_user'];?>" class="input-large" required="">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Password</td>
+                          <td>
+                            <input id="Email" name="pass" class="form-control" type="text" placeholder="" value="<?php echo $ceknamalagi['pass_user'];?>" class="input-large" required="">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Phone</td>
+                          <td>
+                            <input id="Email" name="phone" class="form-control" type="text" placeholder="" value="<?php echo $ceknamalagi['phone_user'];?>" class="input-large" >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Home Address</td>
+                          <td>
+                            <input id="Email" name="alamat" class="form-control" type="text" placeholder="" value="<?php echo $ceknamalagi['alamat_user'];?>" class="input-large" >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Nama Usaha</td>
+                          <td>
+                            <input id="Email" name="nama_usaha" class="form-control" type="text" placeholder="" value="<?php echo $ceknamalagi['nama_usaha'];?>" class="input-large" >
+                          </td>
+                        </tr>
+                          <td>Jenis Usaha</td>
+                          <td>
+                            <input id="Email" name="jenis_usaha" class="form-control" type="text" placeholder="" value="<?php echo $ceknamalagi['jenis_usaha'];?>" class="input-large" >
+                        </td>
+                        <tr>
+                          <td>Pekerjaan</td>
+                          <td>
+                            <input id="Email" name="pekerjaan" class="form-control" type="text" placeholder="" value="<?php echo $ceknamalagi['pekerjaan'];?>" class="input-large" >
+                          </td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                    <center>
+                      <button id="confirmupdate" name="save" type="submit" class="btn btn-success btn-block">SAVE</button>
+                    </center>
+                  </div>
+                </form>
+                </div>
+              </div>
+                   <div class="panel-footer">
+                          <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                          <span class="pull-right">
+                              <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                              <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                          </span>
+                      </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+
 <!-- Footer section -->
 <!-- JS FILES -->
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
@@ -659,6 +917,7 @@ semper aliquam quis mattis consectetur adipiscing elit.." </h1>
 <script type="text/javascript" src="js/jquery.contact.js"></script>
 <script type="text/javascript" src="js/jquery.devrama.slider.min-0.9.4.js"></script>
 <script src="js/wow.min.js"></script>
+<script src="js/jquery.isotope.min.js"></script>
 <script>
               new WOW().init();
               </script>
