@@ -37,7 +37,8 @@ while($data = mysqli_fetch_array($query)){
                         <td><?php echo $data['jenis_usaha']?></td>
                           <td><?php echo $data['pekerjaan']?></td>
                           <td>
-      <a class="btn btn-danger">Hapus</a>
+      <a onclick="if(confirm('Apakah anda yakin ingin menghapus data ini ??'))
+      { location.href='menu/deleteuser.php?id=<?php echo $data['id_user'];?>' }" class="btn btn-danger">Hapus</a>
 </td>
 
                       </tr>
@@ -47,4 +48,4 @@ while($data = mysqli_fetch_array($query)){
           </div>
       </div>
   </div>
-</div>              
+</div>

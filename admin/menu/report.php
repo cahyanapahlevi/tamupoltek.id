@@ -27,7 +27,7 @@
                     <td><?php echo $data['message']?></td>
                     <td>
                     <a class="btn btn-danger" onclick="if(confirm('Apakah anda yakin ingin menghapus data ini ??'))
-                    { location.href='menu/deleteadmin.php?id=<?php echo $data['id_contact'];?>' }">Hapus</a>
+                    { location.href='menu/deletekritiksaran.php?id=<?php echo $data['id_kritik'];?>' }">Hapus</a>
                     </td>
 
                   </tr>
