@@ -70,7 +70,7 @@ if(isset($_SESSION['idadmin'])){
                 <li <?php if($_GET['home']=='stand'){echo "class='active'";}?>> <a href="home.php?home=stand">
                   <i class="ti-shopping-cart-full"></i><p>Stand</p></a>
                 </li>
-								<li <?php if($_GET['home']=='gallery'){echo "class='active'";}?>> <a href="home.php?home=gallery">
+                <li <?php if($_GET['home']=='gallery'){echo "class='active'";}?>> <a href="home.php?home=gallery">
                   <i class="ti-paint-bucket"></i><p>Gallery</p></a>
                 </li>
                 <li <?php if($_GET['home']=='report'){echo "class='active'";}?>> <a href="home.php?home=report">
@@ -209,6 +209,11 @@ if(isset($_SESSION['idadmin'])){
 </div>
 <div id="addadmin" class="modal fade">
 	<?php include "menu/addadmin.php"; ?>
+</div>
+    <div id="galeri" class="modal fade">
+</div>
+<div id="addgaleri" class="modal fade">
+	<?php include "menu/addgaleri.php"; ?>
 </div>
 
     <!--   Core JS Files   -->
