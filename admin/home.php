@@ -13,7 +13,7 @@ if(isset($_SESSION['idadmin'])){
 
 	<title>Admin Tamu Poltek</title>
 
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
     <!-- Bootstrap core CSS     -->
@@ -54,12 +54,19 @@ if(isset($_SESSION['idadmin'])){
                 <li><a href="home.php?home=main">
                 <i class="ti-panel"></i><p>Dashboard</p></a>
                 </li>
-                <li <?php if($_GET['home']=='user'){echo "class='active'";}?>> <a href="home.php?home=user">
-                	<i class="ti-user"></i><p>Tabel Member</p></a>
-                </li>
-                <li <?php if($_GET['home']=='admin'){echo "class='active'";}?>> <a href="home.php?home=admin">
-                	<i class="ti-view-list-alt"></i><p>Tabel Admin</p></a>
-                </li>
+								<li class="panel-group">
+									<a data-toggle="collapse" href="#collapse1">
+										<i class="ti-view-list-alt"></i><p>Table
+									<span class="caret"></span></p></a>
+									<div id="collapse1" class="panel-collapse collapse panel-warning">
+										<ul class="list-group ">
+							        <li class="list-group-item" <?php if($_GET['home']=='user'){echo "class='active'";}?>>
+												<a href="home.php?home=user" style="color:black;">MEMBER LIST</a></li>
+							        <li class="list-group-item"<?php if($_GET['home']=='admin'){echo "class='active'";}?>>
+												<a href="home.php?home=admin"style="color:black;">ADMIN LIST</a></li>
+							      </ul>
+								</div>
+	            </li>
                 <li <?php if($_GET['home']=='stand'){echo "class='active'";}?>> <a href="home.php?home=stand">
                   <i class="ti-shopping-cart-full"></i><p>Stand</p></a>
                 </li>

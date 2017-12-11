@@ -310,67 +310,31 @@ $id_user = nomor();
 <section id="booking" class="section teams">
   <div class="container">
       <div class="section-header">
-                <h2 class="wow fadeInDown animated">Our Team</h2>
-                <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
-            </div>
-    <div class="row">
-      <div class="col-md-3 col-sm-6">
-        <div class="person"><img src="images/team-1.jpg" alt="" class="img-responsive">
-          <div class="person-content">
-            <h4>Jonh Dow</h4>
-            <h5 class="role">Founder</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
-          </div>
-          <ul class="social-icons clearfix">
-            <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-            <li><a href="#"><span class="fa fa-twitter"></span></a></li>
-            <li><a href="#"><span class="fa fa-google-plus"></span></a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-        <div class="person"> <img src="images/team-2.jpg" alt="" class="img-responsive">
-          <div class="person-content">
-            <h4>Markus Linn</h4>
-            <h5 class="role">Creative</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
-          </div>
-          <ul class="social-icons clearfix">
-            <li><a href="#" class=""><span class="fa fa-facebook"></span></a></li>
-            <li><a href="#" class=""><span class="fa fa-twitter"></span></a></li>
-            <li><a href="#" class=""><span class="fa fa-google-plus"></span></a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-        <div class="person"> <img src="images/team-3.jpg" alt="" class="img-responsive">
-          <div class="person-content">
-            <h4>Chris Jemes</h4>
-            <h5 class="role">Technical</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
-          </div>
-          <ul class="social-icons clearfix">
-            <li><a href="#" class=""><span class="fa fa-facebook"></span></a></li>
-            <li><a href="#" class=""><span class="fa fa-twitter"></span></a></li>
-            <li><a href="#" class=""><span class="fa fa-google-plus"></span></a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-        <div class="person"> <img src="images/team-4.jpg" alt="" class="img-responsive">
-          <div class="person-content">
-            <h4>Vintes Mars</h4>
-            <h5 class="role">Marketing</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
-          </div>
-          <ul class="social-icons clearfix">
-            <li><a href="#" class=""><span class="fa fa-facebook"></span></a></li>
-            <li><a href="#" class=""><span class="fa fa-twitter"></span></a></li>
-            <li><a href="#" class=""><span class="fa fa-google-plus"></span></a></li>
-          </ul>
-        </div>
-      </div>
+        <h2 class="wow fadeInDown animated">Our Team</h2>
+        <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
     </div>
+    <h2>Select Your Stand:</h2>
+<form action="user/booking.php" method="post">
+<label class="control-group">Bagian Depan (Jalan Mastrip)</label>
+<div class="control-group">
+  <div class="checkbox">
+  <label><input type="checkbox" onclick="if(this.checked){myFunction()}" name="check_list[]" id="a01" value="A01">A01</label><br>
+  <label><input type="checkbox" onclick="if(this.checked){myFunction()}" name="check_list[]" id="a02" value="A02">A02</label><br>
+  <label><input type="checkbox" onclick="if(this.checked){myFunction()}" name="check_list[]" value="A03">A03</label><br>
+  <label><input type="checkbox" onclick="if(this.checked){myFunction()}" name="check_list[]" value="A04">A04</label><br>
+  <label><input type="checkbox" onclick="if(this.checked){myFunction()}" name="check_list[]" value="A05">A05</label><br>
+  </div>
+</div>
+<label>Stand yang dipilih: <input type="text" id="order" name="total" class="num" value="" readonly="readonly" /></label>
+<script>
+function myFunction(){
+  document.getElementById('order').value = "Anda Memesan Stand: "+id;
+}
+</script>
+<input type="submit" name="submit" Value="Submit"/>
+<!----- Including PHP Script ----->
+<?php include 'user/booking.php';?>
+</form>
   </div>
 </section>
 <!-- our team section -->
@@ -380,143 +344,7 @@ $id_user = nomor();
                 <h2 class="wow fadeInDown animated">Pricing</h2>
                 <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
             </div>
-            <div class="row">
-                 <nav id="filter" class="col-md-12 text-center">
-                     <ul>
-                         <li><a href="#" class="current btn-theme btn-small" data-filter="*">All</a></li>
-                         <li><a href="#" class="btn-theme btn-small" data-filter=".webdesign">Web Design</a></li>
-                         <li><a href="#" class="btn-theme btn-small" data-filter=".photography">Photography</a></li>
-                         <li><a href="#" class="btn-theme btn-small" data-filter=".print">Print</a></li>
-                     </ul>
-                 </nav>
-                 <div class="col-md-12">
-                     <div class="row">
-                         <div class="portfolio-items isotopeWrapper clearfix" id="3">
 
-                             <article class="col-sm-4 isotopeItem webdesign">
-                                 <div class="portfolio-item">
-                                     <img src="images/portfolio/img1.jpg" alt="" />
-                                     <div class="portfolio-desc align-center">
-                                         <div class="folio-info">
-                                             <a href="images/portfolio/img1.jpg" class="fancybox">
-                                                 <h5>Project Name</h5>
-                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </article>
-
-                             <article class="col-sm-4 isotopeItem photography">
-                                 <div class="portfolio-item">
-                                     <img src="images/portfolio/img2.jpg" alt="" />
-                                     <div class="portfolio-desc align-center">
-                                         <div class="folio-info">
-                                             <a href="images/portfolio/img2.jpg" class="fancybox">
-                                                 <h5>Project Name</h5>
-                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </article>
-
-
-                             <article class="col-sm-4 isotopeItem photography">
-                                 <div class="portfolio-item">
-                                     <img src="images/portfolio/img3.jpg" alt="" />
-                                     <div class="portfolio-desc align-center">
-                                         <div class="folio-info">
-                                             <a href="images/portfolio/img3.jpg" class="fancybox">
-                                                 <h5>Project Name</h5>
-                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </article>
-
-                             <article class="col-sm-4 isotopeItem print">
-                                 <div class="portfolio-item">
-                                     <img src="images/portfolio/img4.jpg" alt="" />
-                                     <div class="portfolio-desc align-center">
-                                         <div class="folio-info">
-                                             <a href="images/portfolio/img4.jpg" class="fancybox">
-                                                 <h5>Project Name</h5>
-                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </article>
-
-                             <article class="col-sm-4 isotopeItem photography">
-                                 <div class="portfolio-item">
-                                     <img src="images/portfolio/img5.jpg" alt="" />
-                                     <div class="portfolio-desc align-center">
-                                         <div class="folio-info">
-                                             <a href="images/portfolio/img5.jpg" class="fancybox">
-                                                 <h5>Project Name</h5>
-                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </article>
-
-                             <article class="col-sm-4 isotopeItem webdesign">
-                                 <div class="portfolio-item">
-                                     <img src="images/portfolio/img6.jpg" alt="" />
-                                     <div class="portfolio-desc align-center">
-                                         <div class="folio-info">
-                                             <a href="images/portfolio/img6.jpg" class="fancybox">
-                                                 <h5>Project Name</h5>
-                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </article>
-
-                             <article class="col-sm-4 isotopeItem print">
-                                 <div class="portfolio-item">
-                                     <img src="images/portfolio/img7.jpg" alt="" />
-                                     <div class="portfolio-desc align-center">
-                                         <div class="folio-info">
-                                             <a href="images/portfolio/img7.jpg" class="fancybox">
-                                                 <h5>Project Name</h5>
-                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </article>
-
-                             <article class="col-sm-4 isotopeItem photography">
-                                 <div class="portfolio-item">
-                                     <img src="images/portfolio/img8.jpg" alt="" />
-                                     <div class="portfolio-desc align-center">
-                                         <div class="folio-info">
-                                             <a href="images/portfolio/img8.jpg" class="fancybox">
-                                                 <h5>Project Name</h5>
-                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </article>
-
-                             <article class="col-sm-4 isotopeItem print">
-                                 <div class="portfolio-item">
-                                     <img src="images/portfolio/img9.jpg" alt="" />
-                                     <div class="portfolio-desc align-center">
-                                         <div class="folio-info">
-                                             <a href="images/portfolio/img9.jpg" class="fancybox">
-                                                 <h5>Project Name</h5>
-                                                 <i class="fa fa-arrows-alt fa-2x"></i></a>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </article>
-                         </div>
-
-                     </div>
-
-
-                 </div>
-             </div>
     </div>
 </section>
 <!-- Testimonials section -->
