@@ -3,14 +3,23 @@ include "./koneksi.php";
 if (isset($_POST['simpan1'])) {
 	$id=$_POST['id_galeri'];
 	$nama=$_POST['nama_gambar'];
-	$input=$_FILES['gambar']['nama'];
-    move_uploaded_file($_FILES['gambar']['tmp_name'], "/images/galeri/".$_FILES['gambar']['nama']);
+	$gambar=$_POST['gambar'];
+	$input=$_FILES['gambar']['name'];
+	$tempat=$_FILES['gambar']['tmp_name'];
+  move_uploaded_file($tempat, "../images/galeri/".$input);
+
+	if(empty($tempat)){
+		echo "<script language=\"javascript\">\n";
+		echo "alert(\"Maaf Anda belum memilih Gambar\")\n";
+		echo "window.location=\"./home.php?home=gallery\" ";
+		echo "</script>";
+	}else {
 	$query = mysqli_query($connect,"INSERT INTO galeri VALUES ('$id','$nama','$input')") or die (mysql_error());
-    
-    echo "<script language=\"javascript\">\n";
+  echo "<script language=\"javascript\">\n";
 	echo "alert(\"Data berhasil disimpan ..\")\n";
 	echo "window.location=\"./home.php?home=gallery\" ";
 	echo "</script>";
+	}
 }
 ?>
 <div class="modal-dialog modal-sm">
@@ -29,11 +38,11 @@ if (isset($_POST['simpan1'])) {
 				<div class="form-line">
 				<input type="text" class="form-control" placeholder="Nama Gambar" name="nama_gambar" value="">
 				</div>
-            <p>Gambar</p>
+        <p>Gambar</p>
 				<div class="form-line">
-				<input type="file" class="form-control" placeholder="" name="browse" value="">
+				<input type="file" class="form-control" placeholder="" name="gambar" value="">
 				</div>
-				
+
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>

@@ -28,7 +28,7 @@ function nomor() {
 $id = nomor();
 ?>
 
-            
+
 <div class="row">
   <div class="col-md-12">
       <div class="card">
@@ -42,32 +42,31 @@ $id = nomor();
           <div class="content table-responsive">
               <table class="table table-striped" id="tabel_data">
                   <thead>
-                      <th>Id</th>
+                    <th>No</th>
                     <th>Nama Gambar</th>
                     <th>Gambar</th>
-                    
+
                       <th>Pilihan</th>
                   </thead>
 
                   <tbody>
                       <?php
-                         $query = mysqli_query($connect,"SELECT * FROM `galeri`");
-                         while($data = mysqli_fetch_array($query)){
+                        $no=1;
+                        $query = mysqli_query($connect,"SELECT * FROM `galeri`");
+                        while($data = mysqli_fetch_array($query)){
                       ?>
 
                       <tr>
-                        <td><?php echo $data['id_galeri']?></td>
+                        <td><?php echo $no ?></td>
                         <td><?php echo $data['nama_gambar']?></td>
-                        <td><img src="/images/galeri/<?php echo $data['gambar'];?>"height="60px" width="60px" /></td>
-                        
+                        <td><img src="../images/galeri/<?php echo $data['gambar'];?>" style="height:60px; width:60px;"></td>
                         <td>
-                          
                           <a onclick="if(confirm('Apakah anda yakin ingin menghapus data ini ??'))
                           { location.href='menu/deletegaleri.php?id=<?php echo $data['id_galeri'];?>' }" class="btn btn-danger">
                           <i class="fa fa-trash"></i></a>
                         </td>
-
                       </tr>
+                       <?php $no++?>
                       <?php } ?>
                   </tbody>
               </table>

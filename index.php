@@ -62,10 +62,10 @@ $id_user = nomor();
       <nav class="navigation" role="navigation">
         <ul class="primary-nav">
 		 <li><a href="#banner">Home</a></li>
-          <li><a href="#services">Services</a></li>
+          <li><a href="#event">Event</a></li>
           <li><a href="#content-3-10">About</a></li>
           <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
+          <!--<li><a href="#testimonials">Testimonials</a></li>-->
         <?php if (!isset($_SESSION['id'])) { ?>
           <li><a href="#" data-toggle="modal" data-target="#login">Booking Stand</a></li>
           <li><a href="#" data-toggle="modal" data-target="#login">Login</a></li>
@@ -135,59 +135,36 @@ $id_user = nomor();
   </div>
 </section>
 <!-- intro section -->
+
 <!-- services section -->
-<section id="services" class="services service-section">
+<section id="event" class="services service-section">
   <div class="container">
   <div class="section-header">
-                <h2 class="wow fadeInDown">Our Services</h2>
-                <p class="wow fadeInDown">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
+                <h2 class="wow fadeInDown">Events</h2>
+                <p class="wow fadeInDown">Jadwal Tamu Poltek</p>
             </div>
-    <div class="row wow fadeInUp">
-      <div class="col-md-4 col-sm-6 services text-center"> <span class="icon icon-strategy"></span>
+    <div class="row" >
+      <div class="col-md-6 col-sm-6 services text-center wow pulse" data-wow-duration="2s" data-wow-iteration="300"> <span class="icon icon-strategy"></span>
         <div class="services-content">
           <h5>Designing</h5>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.</p>
         </div>
       </div>
-      <div class="col-md-4 col-sm-6 services text-center"> <span class="icon icon-briefcase"></span>
-        <div class="services-content">
-          <h5>Research</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.</p>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6 services text-center"> <span class="icon icon-tools"></span>
+      <div class="col-md-6 col-sm-6 services text-center wow pulse" data-wow-duration="4s" data-wow-iteration="300"> <span class="icon icon-tools"></span>
         <div class="services-content">
           <h5>Development</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.</p>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6 services text-center"> <span class="icon icon-genius"></span>
-        <div class="services-content">
-          <h5>Financial</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.</p>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6 services text-center"> <span class="icon icon-megaphone"></span>
-        <div class="services-content">
-          <h5>Consulting</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.</p>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6 services text-center"> <span class="icon icon-trophy"></span>
-        <div class="services-content">
-          <h5>Quality</h5>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 <!-- services section -->
 <!--About-->
 <section id="content-3-10" class="content-block data-section nopad content-3-10">
 	<div class="image-container col-sm-6 col-xs-12 pull-left">
 		<div class="background-image-holder wow fadeInLeft">
-
 		</div>
 	</div>
 
@@ -238,7 +215,12 @@ $id_user = nomor();
                 <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
             </div>
     <div class="row no-gutter">
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/01.jpg" class="work-box"> <img src="images/portfolio/01.jpg" alt="">
+      <?php
+
+				$cek = mysqli_query($connect,"select * from galeri LIMIT 8");
+				while($cek2=mysqli_fetch_assoc($cek)){
+			?>
+      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/galeri/<?php echo $cek2['gambar'];?>" class="work-box"> <img src="images/galeri/<?php echo $cek2['gambar'];?>" alt="">
         <div class="overlay">
           <div class="overlay-caption">
              <p><span class="icon icon-magnifying-glass"></span></p>
@@ -246,150 +228,75 @@ $id_user = nomor();
         </div>
         <!-- overlay -->
         </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/02.jpg" class="work-box"> <img src="images/portfolio/02.jpg" alt="">
-        <div class="overlay">
-          <div class="overlay-caption">
-            <p><span class="icon icon-magnifying-glass"></span></p>
-          </div>
-        </div>
-        <!-- overlay -->
-        </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/03.jpg" class="work-box"> <img src="images/portfolio/03.jpg" alt="">
-        <div class="overlay">
-          <div class="overlay-caption">
-            <p><span class="icon icon-magnifying-glass"></span></p>
-          </div>
-        </div>
-        <!-- overlay -->
-        </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/04.jpg" class="work-box"> <img src="images/portfolio/04.jpg" alt="">
-        <div class="overlay">
-          <div class="overlay-caption">
-            <p><span class="icon icon-magnifying-glass"></span></p>
-          </div>
-        </div>
-        <!-- overlay -->
-        </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/05.jpg" class="work-box"> <img src="images/portfolio/05.jpg" alt="">
-        <div class="overlay">
-          <div class="overlay-caption">
-            <p><span class="icon icon-magnifying-glass"></span></p>
-          </div>
-        </div>
-        <!-- overlay -->
-        </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/06.jpg" class="work-box"> <img src="images/portfolio/06.jpg" alt="">
-        <div class="overlay">
-          <div class="overlay-caption">
-            <p><span class="icon icon-magnifying-glass"></span></p>
-          </div>
-        </div>
-        <!-- overlay -->
-        </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/07.jpg" class="work-box"> <img src="images/portfolio/07.jpg" alt="">
-        <div class="overlay">
-          <div class="overlay-caption">
-            <p><span class="icon icon-magnifying-glass"></span></p>
-          </div>
-        </div>
-        <!-- overlay -->
-        </a> </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/portfolio/08.jpg" class="work-box"> <img src="images/portfolio/08.jpg" alt="">
-        <div class="overlay">
-          <div class="overlay-caption">
-             <p><span class="icon icon-magnifying-glass"></span></p>
-          </div>
-        </div>
-        <!-- overlay -->
-        </a> </div>
+      <?php } ?>
     </div>
   </div>
 </section>
 <!-- gallery section -->
+
+<?php if (isset($_SESSION['id'])) { ?> ?>
 <!-- our team section -->
 <section id="booking" class="section teams">
   <div class="container">
       <div class="section-header">
-        <h2 class="wow fadeInDown animated">Our Team</h2>
-        <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
+        <h2 class="wow fadeInDown animated">Booking Stand</h2>
+        <p class="wow fadeInDown animated">Choose Your Best Location <br> For Your Stand</p>
     </div>
     <h2>Select Your Stand:</h2>
 <form action="user/booking.php" method="post">
 <label class="control-group">Bagian Depan (Jalan Mastrip)</label>
 <div class="control-group">
   <div class="checkbox">
-  <label><input type="checkbox" onclick="if(this.checked){myFunction()}" name="check_list[]" id="a01" value="A01">A01</label><br>
-  <label><input type="checkbox" onclick="if(this.checked){myFunction()}" name="check_list[]" id="a02" value="A02">A02</label><br>
-  <label><input type="checkbox" onclick="if(this.checked){myFunction()}" name="check_list[]" value="A03">A03</label><br>
-  <label><input type="checkbox" onclick="if(this.checked){myFunction()}" name="check_list[]" value="A04">A04</label><br>
-  <label><input type="checkbox" onclick="if(this.checked){myFunction()}" name="check_list[]" value="A05">A05</label><br>
+  <label><input type="checkbox" onclick="if(this.checked){myFunction(this.value)}else{functionUnchek(this.value)}" name="check_list[]" value="A01">A01</label><br>
+  <label><input type="checkbox" onclick="if(this.checked){myFunction(this.value)}else{functionUnchek(this.value)}" name="check_list[]" value="A02">A02</label><br>
+  <label><input type="checkbox" onclick="if(this.checked){myFunction(this.value)}else{functionUnchek(this.value)}" name="check_list[]" value="A03">A03</label><br>
+  <label><input type="checkbox" onclick="if(this.checked){myFunction(this.value)}else{functionUnchek(this.value)}" name="check_list[]" value="A04">A04</label><br>
+  <label><input type="checkbox" onclick="if(this.checked){myFunction(this.value)}else{functionUnchek(this.value)}" name="check_list[]" value="A05">A05</label><br>
   </div>
 </div>
 <label>Stand yang dipilih: <input type="text" id="order" name="total" class="num" value="" readonly="readonly" /></label>
+
 <script>
-function myFunction(){
-  document.getElementById('order').value = "Anda Memesan Stand: "+id;
+function myFunction(a){
+  if(a != null){
+    document.getElementById('order').value += a + " ";
+  }
+}
+function functionUnchek(a){
+  var nilai = document.getElementById('order').value;
+  document.getElementById('order').value = nilai.replace(a + " ", "");
 }
 </script>
+
 <input type="submit" name="submit" Value="Submit"/>
-<!----- Including PHP Script ----->
 <?php include 'user/booking.php';?>
 </form>
   </div>
 </section>
 <!-- our team section -->
-<section id="pricing5" data-section="pricing-5" class="data-section">
-    <div class="container">
-          <div class="section-header">
-                <h2 class="wow fadeInDown animated">Pricing</h2>
-                <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
-            </div>
+<?php } ?>
 
-    </div>
-</section>
+
 <!-- Testimonials section -->
 <section id="testimonials" class="section testimonials no-padding">
   <div class="container-fluid">
     <div class="row no-gutter">
       <div class="flexslider">
         <ul class="slides">
+          <?php
+          $sql=mysqli_query($connect,"Select * from kritiksaran LIMIT 3");
+          while($query=mysqli_fetch_array($sql)){ ?>
           <li>
             <div class="col-md-12">
               <blockquote>
-                <h1>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa
-semper aliquam quis mattis consectetur adipiscing elit.." </h1>
-                <p>Chris Mentsl</p>
+                <h1>"<?php echo $query['message']; ?>" </h1>
+                <p><?php echo $query['nama']; ?></p>
               </blockquote>
             </div>
           </li>
-          <li>
-            <div class="col-md-12">
-              <blockquote>
-                <h1>"Praesent eget risus vitae massa Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa
-semper aliquam quis mattis consectetur adipiscing elit.." </h1>
-                <p>Kristean velnly</p>
-              </blockquote>
-            </div>
-          </li>
-          <li>
-            <div class="col-md-12">
-              <blockquote>
-                <h1>"Consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa
-semper aliquam quis mattis consectetur adipiscing elit.." </h1>
-                <p>Markus Denny</p>
-              </blockquote>
-            </div>
-          </li>
-          <li>
-            <div class="col-md-12">
-              <blockquote>
-                <h1>"Vitae massa semper aliquam Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa
-semper aliquam quis mattis consectetur adipiscing elit.." </h1>
-                <p>John Doe</p>
-              </blockquote>
-            </div>
-          </li>
+          <?php } ?>
         </ul>
+
       </div>
     </div>
   </div>
@@ -400,7 +307,7 @@ semper aliquam quis mattis consectetur adipiscing elit.." </h1>
 <section id="contact" class="section">
   <div class="container">
       <div class="section-header">
-                <h2 class="wow fadeInDown">Contact Us</h2>
+                <h2 class="wow fadeInDown">Critic and Suggestion</h2>
                 <p class="wow fadeInDown">Kritik dan Saran Anda berguna untuk membangun Tamu Poltek <br> menjadi Lebih Baik</p>
             </div>
     <div class="row wow fadeInLeft">

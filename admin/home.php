@@ -27,9 +27,9 @@ if(isset($_SESSION['idadmin'])){
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="assets/css/demo.css" rel="stylesheet" />
     <!--  Fonts and icons     -->
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-    <link href="assets/css/themify-icons.css" rel="stylesheet">
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'/>
+    <link href="assets/css/themify-icons.css" rel="stylesheet"/>
 
 
 </head>
@@ -210,7 +210,7 @@ if(isset($_SESSION['idadmin'])){
 <div id="addadmin" class="modal fade">
 	<?php include "menu/addadmin.php"; ?>
 </div>
-    <div id="galeri" class="modal fade">
+<div id="galeri" class="modal fade">
 </div>
 <div id="addgaleri" class="modal fade">
 	<?php include "menu/addgaleri.php"; ?>
