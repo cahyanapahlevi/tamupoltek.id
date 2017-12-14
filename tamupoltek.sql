@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 06 Des 2017 pada 08.19
--- Versi Server: 10.1.19-MariaDB
--- PHP Version: 7.0.13
+-- Generation Time: 14 Des 2017 pada 15.31
+-- Versi Server: 5.6.16
+-- PHP Version: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `tamupoltek`
@@ -26,12 +26,13 @@ SET time_zone = "+00:00";
 -- Struktur dari tabel `admin`
 --
 
-CREATE TABLE `admin` (
+CREATE TABLE IF NOT EXISTS `admin` (
   `id_admin` varchar(5) NOT NULL,
   `username` varchar(15) DEFAULT NULL,
   `password` varchar(15) DEFAULT NULL,
   `phone_admin` varchar(15) DEFAULT NULL,
-  `jadwal_acara` date DEFAULT NULL
+  `jadwal_acara` date DEFAULT NULL,
+  PRIMARY KEY (`id_admin`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -47,9 +48,10 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`, `phone_admin`, `jadwal_
 -- Struktur dari tabel `event`
 --
 
-CREATE TABLE `event` (
+CREATE TABLE IF NOT EXISTS `event` (
   `id_event` varchar(5) NOT NULL,
-  `eventdate` date NOT NULL
+  `eventdate` date NOT NULL,
+  PRIMARY KEY (`id_event`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -57,7 +59,6 @@ CREATE TABLE `event` (
 --
 
 INSERT INTO `event` (`id_event`, `eventdate`) VALUES
-('', '0000-00-00'),
 ('e0001', '2017-11-09'),
 ('e0003', '2017-12-10'),
 ('e0005', '2017-11-16'),
@@ -65,9 +66,35 @@ INSERT INTO `event` (`id_event`, `eventdate`) VALUES
 ('e0011', '2017-11-24'),
 ('e0012', '2017-11-16'),
 ('e0013', '2017-11-04'),
-('e0014', '2017-11-23'),
-('e0015', '2017-11-30'),
-('e0016', '2017-01-25');
+('e0014', '2017-11-23');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `galeri`
+--
+
+CREATE TABLE IF NOT EXISTS `galeri` (
+  `id_galeri` varchar(5) NOT NULL,
+  `nama_gambar` varchar(20) NOT NULL,
+  `gambar` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_galeri`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `galeri`
+--
+
+INSERT INTO `galeri` (`id_galeri`, `nama_gambar`, `gambar`) VALUES
+('G0001', 'foto1', '01.jpg'),
+('G0002', 'foto2', '02.jpg'),
+('G0003', 'foto3', '03.jpg'),
+('G0004', 'foto4', '04.jpg'),
+('G0005', 'foto5', '05.jpg'),
+('G0006', 'foto6', '06.jpg'),
+('G0007', 'foto7', '07.jpg'),
+('G0008', 'foto8', '08.JPG'),
+('G0009', 'foto9', '09.jpg');
 
 -- --------------------------------------------------------
 
@@ -75,25 +102,21 @@ INSERT INTO `event` (`id_event`, `eventdate`) VALUES
 -- Struktur dari tabel `kritiksaran`
 --
 
-CREATE TABLE `kritiksaran` (
-  `id_kritik` int(5) NOT NULL,
+CREATE TABLE IF NOT EXISTS `kritiksaran` (
+  `id_kritik` int(5) NOT NULL AUTO_INCREMENT,
   `nama` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `message` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `message` varchar(300) NOT NULL,
+  PRIMARY KEY (`id_kritik`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data untuk tabel `kritiksaran`
 --
 
 INSERT INTO `kritiksaran` (`id_kritik`, `nama`, `email`, `message`) VALUES
-(1, 'zakia', 'zakia@gmail.com', 'z'),
-(2, 'zakia', 'zakia@gmail.com', 'z'),
-(3, 'aaa', 'aaa@gmail.com', 'z'),
-(4, 'bbb', 'aaa@gmail.com', ''),
-(5, 'zakiyatul masruroh', 'zakia@gmail.com', 'aaaaaa\r\n'),
-(6, 'jon', 'jon@gmail.com', 'fsdfahfg'),
-(7, 'zafdf', 'zakia@gmail.co.id', 'aaaa');
+(5, 'zakiyatul masruroh', 'zakia@gmail.com', 'aaaaaaaaa... Keren Banyak makanan dan minuman yang membuat diriku ngiler'),
+(6, 'Nico Libriawan', 'nicklibra24@gmail.com', 'Acaranya cukup menarik, tetapi kuliner - kulinernya cukup mahal ^_^');
 
 -- --------------------------------------------------------
 
@@ -101,25 +124,23 @@ INSERT INTO `kritiksaran` (`id_kritik`, `nama`, `email`, `message`) VALUES
 -- Struktur dari tabel `stand`
 --
 
-CREATE TABLE `stand` (
+CREATE TABLE IF NOT EXISTS `stand` (
   `id_stand` varchar(5) NOT NULL,
   `id_user` varchar(5) DEFAULT NULL,
-  `id_admin` varchar(5) DEFAULT NULL,
-  `nomor_stand` varchar(6) DEFAULT NULL,
-  `tipe_stand` varchar(7) DEFAULT NULL,
-  `jumlah_stand` varchar(5) DEFAULT NULL,
-  `deskripsi_stand` varchar(30) DEFAULT NULL,
-  `tgl_pemesanan` date DEFAULT NULL
+  `tgl_pemesanan` date DEFAULT NULL,
+  PRIMARY KEY (`id_stand`),
+  KEY `FK_MEMILIH` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `stand`
 --
 
-INSERT INTO `stand` (`id_stand`, `id_user`, `id_admin`, `nomor_stand`, `tipe_stand`, `jumlah_stand`, `deskripsi_stand`, `tgl_pemesanan`) VALUES
-('A01', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('A02', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-('A03', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `stand` (`id_stand`, `id_user`, `tgl_pemesanan`) VALUES
+('A01', 'u0004', '2017-12-14'),
+('A02', 'u0004', '2017-12-14'),
+('A03', 'u0004', '2017-12-14'),
+('A04', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -127,7 +148,7 @@ INSERT INTO `stand` (`id_stand`, `id_user`, `id_admin`, `nomor_stand`, `tipe_sta
 -- Struktur dari tabel `user`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `id_user` varchar(5) NOT NULL,
   `id_admin` varchar(5) DEFAULT NULL,
   `nama_user` varchar(30) DEFAULT NULL,
@@ -137,7 +158,9 @@ CREATE TABLE `user` (
   `alamat_user` varchar(60) DEFAULT NULL,
   `nama_usaha` varchar(20) DEFAULT NULL,
   `jenis_usaha` varchar(15) DEFAULT NULL,
-  `pekerjaan` varchar(15) DEFAULT NULL
+  `pekerjaan` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`id_user`),
+  KEY `FK_MENDAFTAR` (`id_admin`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -145,56 +168,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `id_admin`, `nama_user`, `email_user`, `pass_user`, `phone_user`, `alamat_user`, `nama_usaha`, `jenis_usaha`, `pekerjaan`) VALUES
-('u0001', NULL, 'Nico Libriawan', 'nicklibra24@gmail.com', '1234', NULL, NULL, NULL, NULL, NULL),
-('u0002', NULL, 'Lord Sword', 'nico@gmail.com', '1234', NULL, NULL, NULL, NULL, NULL),
-('u0003', NULL, 'zakia', 'zakia@gmail.com', '12345', '081234567890', 'jember', '###########', 'kuliner', 'mahasiswa');
+('u0003', NULL, 'zakia', 'zakia@gmail.com', '12345', '081234567890', 'jember', '###########', 'kuliner', 'mahasiswa'),
+('u0004', NULL, 'Nico Libriawan', 'nicklibra24@gmail.com', '1234', NULL, NULL, NULL, NULL, NULL);
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id_admin`);
-
---
--- Indexes for table `event`
---
-ALTER TABLE `event`
-  ADD PRIMARY KEY (`id_event`);
-
---
--- Indexes for table `kritiksaran`
---
-ALTER TABLE `kritiksaran`
-  ADD PRIMARY KEY (`id_kritik`);
-
---
--- Indexes for table `stand`
---
-ALTER TABLE `stand`
-  ADD PRIMARY KEY (`id_stand`),
-  ADD KEY `FK_MEMILIH` (`id_user`),
-  ADD KEY `FK_MENAMBAHKAN` (`id_admin`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`),
-  ADD KEY `FK_MENDAFTAR` (`id_admin`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `kritiksaran`
---
-ALTER TABLE `kritiksaran`
-  MODIFY `id_kritik` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
@@ -203,8 +179,7 @@ ALTER TABLE `kritiksaran`
 -- Ketidakleluasaan untuk tabel `stand`
 --
 ALTER TABLE `stand`
-  ADD CONSTRAINT `FK_MEMILIH` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
-  ADD CONSTRAINT `FK_MENAMBAHKAN` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`);
+  ADD CONSTRAINT `FK_MEMILIH` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
 
 --
 -- Ketidakleluasaan untuk tabel `user`
