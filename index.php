@@ -234,8 +234,12 @@ $id_user = nomor();
 </section>
 <!-- gallery section -->
 
-<?php if (isset($_SESSION['id'])) { ?> ?>
-<!-- our team section -->
+<!-- Booking Stand Section -->
+<?php if (isset($_SESSION['id'])) { ?>
+  <?php
+   $tgl=date('Y-m-d');
+   #echo $tgl;
+   ?>
 <section id="booking" class="section teams">
   <div class="container">
       <div class="section-header">
@@ -246,15 +250,25 @@ $id_user = nomor();
 <form action="user/booking.php" method="post">
 <label class="control-group">Bagian Depan (Jalan Mastrip)</label>
 <div class="control-group">
+<?php
+  $sql     = mysqli_query($connect,"select * from stand");
+  while($query2=mysqli_fetch_array($sql)){
+  ?>
   <div class="checkbox">
-  <label><input type="checkbox" onclick="if(this.checked){myFunction(this.value)}else{functionUnchek(this.value)}" name="check_list[]" value="A01">A01</label><br>
-  <label><input type="checkbox" onclick="if(this.checked){myFunction(this.value)}else{functionUnchek(this.value)}" name="check_list[]" value="A02">A02</label><br>
-  <label><input type="checkbox" onclick="if(this.checked){myFunction(this.value)}else{functionUnchek(this.value)}" name="check_list[]" value="A03">A03</label><br>
-  <label><input type="checkbox" onclick="if(this.checked){myFunction(this.value)}else{functionUnchek(this.value)}" name="check_list[]" value="A04">A04</label><br>
-  <label><input type="checkbox" onclick="if(this.checked){myFunction(this.value)}else{functionUnchek(this.value)}" name="check_list[]" value="A05">A05</label><br>
+  <label>
+  <?php if(!isset($query2['id_user'])){ ?>
+    <input type="checkbox" onclick="if(this.checked){myFunction(this.value)}else{functionUnchek(this.value)}" name="check_list[]" value="<?php echo $query2['id_stand'];?>"><?php echo $query2['id_stand'];?></label><br>
+  <?php }else{ ?>
+    <input type="checkbox" name="check_list[]" disabled> <?php echo $query2['id_stand'];?> Sudah DiBooking
+  <?php } ?>
   </div>
+<?php } ?>
+
 </div>
-<label>Stand yang dipilih: <input type="text" id="order" name="total" class="num" value="" readonly="readonly" /></label>
+<input type="hidden" name="id_user" value="<?php echo $_SESSION['id'];?>"><br>
+<input type="hidden" name="tanggal" value="<?php echo $tgl ?>"><br>
+<label class="control-group">Stand yang dipilih: </label>
+<input type="text" id="order" name="total" class="form-control" value="" readonly="readonly" />
 
 <script>
 function myFunction(a){
@@ -267,13 +281,13 @@ function functionUnchek(a){
   document.getElementById('order').value = nilai.replace(a + " ", "");
 }
 </script>
-
 <input type="submit" name="submit" Value="Submit"/>
 <?php include 'user/booking.php';?>
 </form>
   </div>
+
 </section>
-<!-- our team section -->
+<!-- Booking Stand section -->
 <?php } ?>
 
 
