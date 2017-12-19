@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 14 Des 2017 pada 15.31
+-- Generation Time: 19 Des 2017 pada 02.09
 -- Versi Server: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -45,6 +45,25 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`, `phone_admin`, `jadwal_
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `booking`
+--
+
+CREATE TABLE IF NOT EXISTS `booking` (
+  `id_booking` varchar(5) NOT NULL,
+  `date_booking` date NOT NULL,
+  `status` varchar(10) NOT NULL,
+  `id_user` varchar(5) NOT NULL,
+  `id_event` varchar(5) NOT NULL,
+  `id_stand` varchar(5) NOT NULL,
+  PRIMARY KEY (`id_booking`),
+  KEY `id_stand` (`id_stand`),
+  KEY `id_event` (`id_event`),
+  KEY `id_user` (`id_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `event`
 --
 
@@ -59,14 +78,7 @@ CREATE TABLE IF NOT EXISTS `event` (
 --
 
 INSERT INTO `event` (`id_event`, `eventdate`) VALUES
-('e0001', '2017-11-09'),
-('e0003', '2017-12-10'),
-('e0005', '2017-11-16'),
-('e0009', '2017-11-30'),
-('e0011', '2017-11-24'),
-('e0012', '2017-11-16'),
-('e0013', '2017-11-04'),
-('e0014', '2017-11-23');
+('e0001', '2017-12-01');
 
 -- --------------------------------------------------------
 
@@ -126,21 +138,26 @@ INSERT INTO `kritiksaran` (`id_kritik`, `nama`, `email`, `message`) VALUES
 
 CREATE TABLE IF NOT EXISTS `stand` (
   `id_stand` varchar(5) NOT NULL,
-  `id_user` varchar(5) DEFAULT NULL,
-  `tgl_pemesanan` date DEFAULT NULL,
+  `status` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id_stand`),
-  KEY `FK_MEMILIH` (`id_user`)
+  KEY `FK_MEMILIH` (`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `stand`
 --
 
-INSERT INTO `stand` (`id_stand`, `id_user`, `tgl_pemesanan`) VALUES
-('A01', 'u0004', '2017-12-14'),
-('A02', 'u0004', '2017-12-14'),
-('A03', 'u0004', '2017-12-14'),
-('A04', NULL, NULL);
+INSERT INTO `stand` (`id_stand`, `status`) VALUES
+('A01', NULL),
+('A02', NULL),
+('A03', NULL),
+('A04', NULL),
+('A05', NULL),
+('A06', NULL),
+('A07', NULL),
+('A08', NULL),
+('A09', NULL),
+('A10', NULL);
 
 -- --------------------------------------------------------
 
@@ -150,7 +167,6 @@ INSERT INTO `stand` (`id_stand`, `id_user`, `tgl_pemesanan`) VALUES
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id_user` varchar(5) NOT NULL,
-  `id_admin` varchar(5) DEFAULT NULL,
   `nama_user` varchar(30) DEFAULT NULL,
   `email_user` varchar(30) DEFAULT NULL,
   `pass_user` varchar(10) DEFAULT NULL,
@@ -159,33 +175,29 @@ CREATE TABLE IF NOT EXISTS `user` (
   `nama_usaha` varchar(20) DEFAULT NULL,
   `jenis_usaha` varchar(15) DEFAULT NULL,
   `pekerjaan` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`id_user`),
-  KEY `FK_MENDAFTAR` (`id_admin`)
+  PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `id_admin`, `nama_user`, `email_user`, `pass_user`, `phone_user`, `alamat_user`, `nama_usaha`, `jenis_usaha`, `pekerjaan`) VALUES
-('u0003', NULL, 'zakia', 'zakia@gmail.com', '12345', '081234567890', 'jember', '###########', 'kuliner', 'mahasiswa'),
-('u0004', NULL, 'Nico Libriawan', 'nicklibra24@gmail.com', '1234', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user` (`id_user`, `nama_user`, `email_user`, `pass_user`, `phone_user`, `alamat_user`, `nama_usaha`, `jenis_usaha`, `pekerjaan`) VALUES
+('u0004', 'Nico Libriawan', 'nicklibra24@gmail.com', '1234', NULL, NULL, NULL, NULL, NULL),
+('u0005', 'Zakiya Underwater', 'zakia@gmail.com', '1234', NULL, NULL, NULL, NULL, NULL),
+('u0006', 'zakia', 'zakia@gmail.com', '12345', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Ketidakleluasaan untuk tabel `stand`
+-- Ketidakleluasaan untuk tabel `booking`
 --
-ALTER TABLE `stand`
-  ADD CONSTRAINT `FK_MEMILIH` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
-
---
--- Ketidakleluasaan untuk tabel `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `FK_MENDAFTAR` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`);
+ALTER TABLE `booking`
+  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`id_stand`) REFERENCES `stand` (`id_stand`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`id_event`) REFERENCES `event` (`id_event`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

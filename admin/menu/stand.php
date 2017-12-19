@@ -1,88 +1,63 @@
+<?php
+include "./koneksi.php";
+?>
 <div class="row">
-<div class="col-md-6">
-<div class="card">
-    <div class="header">
-      <div class="alert alert-info alert-with-icon" data-notify="container">
-          <button type="button" aria-hidden="true" class="close">×</button>
-          <span data-notify="icon" class="ti-bell"></span>
-          <span data-notify="message"><strong>STAND A</strong></span>
-      </div>
-    </div>
-    <div class="content table-responsive">
-      <h2>Striped Rows</h2>
-      <p>The .table-striped class adds zebra-stripes to a table:</p>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>KODE</th>
-            <th>PEMESAN</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>A01</td>
-            <td>Doe</td>
-          </tr>
-          <tr>
-            <td>A02</td>
-            <td>Moe</td>
-          </tr>
-          <tr>
-            <td>A03</td>
-            <td>Dooley</td>
-          </tr>
-          <tr>
-            <td>A04</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>A04</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-</div>
-</div>
-
-<div class="col-md-6">
+<div class="col-md-7">
   <div class="card">
     <div class="header">
       <div class="alert alert-warning alert-with-icon" data-notify="container">
           <button type="button" aria-hidden="true" class="close">×</button>
           <span data-notify="icon" class="ti-alarm-clock"></span>
-          <span data-notify="message"><strong>STAND B</strong></span>
+          <span data-notify="message"><strong>TABEL STAND</strong></span>
       </div>
     </div>
     <div class="content table-responsive">
-      <h2>Striped Rows</h2>
-      <p>The .table-striped class adds zebra-stripes to a table:</p>
-      <table class="table table-striped">
+      <table class="table table-striped" id="tabel_data">
         <thead>
-          <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
-          </tr>
+            <th>No</th>
+            <th>KODE</th>
+            <th>STATUS</th>
         </thead>
         <tbody>
+          <?php
+              $no = 1;
+              $sql=mysqli_query($connect,"Select * from stand");
+              while($query=mysqli_fetch_array($sql)){
+          ?>
           <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
+            <td><?php echo $no ?></td>
+            <td><?php echo $query['id_stand']; ?></td>
+            <td><?php echo $query['status']; ?></td>
           </tr>
-          <tr>
-            <td>Mary</td>
-            <td>Moe</td>
-            <td>mary@example.com</td>
-          </tr>
-          <tr>
-            <td>July</td>
-            <td>Dooley</td>
-            <td>july@example.com</td>
-          </tr>
+          <?php $no++ ?>
+          <?php } ?>
         </tbody>
       </table>
     </div>
   </div>
+</div>
+
+<div class="col-md-5">
+<div class="card">
+    <div class="header">
+      <div class="alert alert-info alert-with-icon" data-notify="container">
+          <button type="button" aria-hidden="true" class="close">×</button>
+          <span data-notify="icon" class="ti-bell"></span>
+          <span data-notify="message"><strong>RESET STAND </strong></span>
+      </div>
+    </div>
+    <div class="content table-responsive">
+      <form role="form" action="menu/addstand.php" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <!--<label for="email"></label>
+          <!--<input type="text" value="<?php echo $idstand; ?>" name="id_stand" />
+          <!--<input type="number" name="jmlstand" class="form-control" placeholder="Isi Angka">-->
+        </div>
+        <button type="submit" class="btn btn-default" name="save">TAMBAH STAND</button>
+        <a onclick="if(confirm('Apakah anda yakin ingin MERESET DATA STAND ini ??'))
+        { location.href='menu/deletestand.php' }" class="btn btn-danger">
+        <i class="fa fa-trash"></i> RESET STAND</a>
+      </form>
+</div>
+</div>
 </div>

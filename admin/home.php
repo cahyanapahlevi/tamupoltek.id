@@ -57,13 +57,23 @@ if(isset($_SESSION['idadmin'])){
 								<li class="panel-group">
 									<a data-toggle="collapse" href="#collapse1">
 										<i class="ti-view-list-alt"></i><p>Table
-									<b><span class="caret"></span></b></p></a>
+									<span class="caret"></span></p></a>
 	            	</li>
 							<div id="collapse1" class="collapse">
-									<li class="list-group-item" <?php if($_GET['home']=='user'){echo "class='active'";}?>>
-										<a href="home.php?home=user" style="color:black;">MEMBER LIST</a></li>
-									<li class="list-group-item" <?php if($_GET['home']=='admin'){echo "class='active'";}?>>
-										<a href="home.php?home=admin"style="color:black;">ADMIN LIST</a></li>
+								<ul>
+									<li  <?php if($_GET['home']=='user'){echo "active";}?>>
+										<a href="home.php?home=user">
+											<p><i class="ti-user"></i>MEMBER LIST </p></a>
+									</li>
+									<li  <?php if($_GET['home']=='admin'){echo "active";}?>>
+										<a href="home.php?home=admin">
+											<p><i class="ti-view-list-alt"></i>ADMIN LIST </p></a>
+									</li>
+									<li  <?php if($_GET['home']=='booking'){echo "active";}?>>
+										<a href="home.php?home=booking">
+											<p><i class="ti-view-list-alt"></i>BOOKING LIST </p></a>
+									</li>
+								</ul>
 						 </div>
                 <li <?php if($_GET['home']=='stand'){echo "class='active'";}?>> <a href="home.php?home=stand">
                   <i class="ti-shopping-cart-full"></i><p>Stand</p></a>
@@ -148,6 +158,8 @@ if(isset($_SESSION['idadmin'])){
 									case 'user' : include "menu/user.php";
 										break;
 									case 'admin' : include "menu/admin.php";
+										break;
+									case 'booking' : include "menu/booking.php";
 										break;
 									case 'event' : include "menu/event.php";
 										break;

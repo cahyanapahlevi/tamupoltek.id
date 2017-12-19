@@ -2,34 +2,6 @@
 session_start();
 include("user/koneksi.php");
 ?>
-<?php
-function nomor() {
-  include "user/koneksi.php";
-	$sql = "SELECT id_user FROM user ORDER BY id_user DESC LIMIT 0,1";
-	$query = mysqli_query($connect,$sql) or die (mysqli_error($query));
-	list ($no_temp) = mysqli_fetch_row($query);
-
-	if ($no_temp == '') {
-		$no_urut = 'u0001';
-		} else {
-		$jum = substr($no_temp,1,5);
-		$jum++;
-		if($jum <= 99) {
-			$no_urut = 'u000' . $jum;
-		} elseif ($jum <= 999) {
-			$no_urut = 'u00' . $jum;
-		} elseif ($jum <= 9999) {
-			$no_urut = 'u0' . $jum;
-		} elseif ($jum <= 99999) {
-			$no_urut = 'u' . $jum;
-		} else {
-			die("Nomor urut melebih batas");
-		}
-	}
-		return $no_urut;
-}
-$id_user = nomor();
-?>
 
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -137,6 +109,10 @@ $id_user = nomor();
 <!-- intro section -->
 
 <!-- services section -->
+<?php
+$sql=mysqli_query($connect,"select * from event ORDER BY id_event DESC");
+$cekevent=mysqli_fetch_array($sql);
+ ?>
 <section id="event" class="services service-section">
   <div class="container">
   <div class="section-header">
@@ -146,8 +122,8 @@ $id_user = nomor();
     <div class="row" >
       <div class="col-md-6 col-sm-6 services text-center wow pulse" data-wow-duration="2s" data-wow-iteration="300"> <span class="icon icon-strategy"></span>
         <div class="services-content">
-          <h5>Designing</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.</p>
+          <h5>Jadwal Event Terbaru</h5>
+          <p>Date : <?php echo $cekevent['eventdate']; ?></p>
         </div>
       </div>
       <div class="col-md-6 col-sm-6 services text-center wow pulse" data-wow-duration="4s" data-wow-iteration="300"> <span class="icon icon-tools"></span>
@@ -178,7 +154,7 @@ $id_user = nomor();
 					<p>Taman usaha Politeknik Negeri Jember atau yang lebih sering dikenal dengan sebutan Tamu Poltek merupakan media atau sarana untuk mewadai inspirasi kewirausahaan mahasiswa.</p>
 					<p></p>
 				</div>
-				<a href="#gallery" class="btn btn-outline btn-outline outline-dark wow fadeInLeft">Our Gallery</a>
+				<a data-toggle="collapse" href="#collapse1" class="btn btn-outline btn-outline outline-dark wow fadeInLeft">Continue Read</a>
 			</div>
 		</div><!-- /.row-->
 	</div><!-- /.container -->
@@ -186,6 +162,7 @@ $id_user = nomor();
 
 
 <!-- package section -->
+<div id="collapse1" class="collapse">
 <section class="video-section">
   <div class="container">
     <div class="row">
@@ -205,6 +182,7 @@ $id_user = nomor();
 			</div><!-- end row -->
   </div>
 </section>
+</div>
 <!-- package section -->
 
 <!-- gallery section -->
@@ -244,47 +222,67 @@ $id_user = nomor();
   <div class="container">
       <div class="section-header">
         <h2 class="wow fadeInDown animated">Booking Stand</h2>
-        <p class="wow fadeInDown animated">Choose Your Best Location <br> For Your Stand</p>
+        <p class="wow fadeInDown animated">Choose Your Best Location</p>
     </div>
-    <h2>Select Your Stand:</h2>
-<form action="user/booking.php" method="post">
-<label class="control-group">Bagian Depan (Jalan Mastrip)</label>
-<div class="control-group">
-<?php
-  $sql     = mysqli_query($connect,"select * from stand");
-  while($query2=mysqli_fetch_array($sql)){
-  ?>
-  <div class="checkbox">
-  <label>
-  <?php if(!isset($query2['id_user'])){ ?>
-    <input type="checkbox" onclick="if(this.checked){myFunction(this.value)}else{functionUnchek(this.value)}" name="check_list[]" value="<?php echo $query2['id_stand'];?>"><?php echo $query2['id_stand'];?></label><br>
-  <?php }else{ ?>
-    <input type="checkbox" name="check_list[]" disabled> <?php echo $query2['id_stand'];?> Sudah DiBooking
-  <?php } ?>
+<div class="row">
+  <div class="cols-md-6 col-sm-6">
+  <div class="services-content">
+  <h4>Select Your Stand:</h4>
+  <form action="user/booking.php" method="post">
+  <label class="control-group">Bagian Depan (Jalan Mastrip)</label>
+    <div class="control-group">
+    <?php
+      $sql     = mysqli_query($connect,"select * from stand");
+      while($query2=mysqli_fetch_array($sql)){
+    ?>
+      <div class="checkbox">
+      <label>
+      <?php if(!isset($query2['id_user'])){ ?>
+        <input type="checkbox" onclick="if(this.checked){myFunction(this.value)}else{functionUnchek(this.value)}" name="check_list[]" value="<?php echo $query2['id_stand'];?>"><?php echo $query2['id_stand'];?></label><br>
+      <?php }else{ ?>
+        <input type="checkbox" name="check_list[]" disabled> <?php echo $query2['id_stand'];?> Sudah DiBooking
+      <?php } ?>
+      </div>
+    <?php } ?>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Stand yang dipilih: </label>
+      <div class="controls">
+    <input type="text" id="order" name="total" class="form-control" value="" readonly="readonly" /><br>
+      </div>
+    </div>
+          <script>
+          function myFunction(a){
+            if(a != null){
+              document.getElementById('order').value += a + " ";
+            }
+          }
+          function functionUnchek(a){
+            var nilai = document.getElementById('order').value;
+            document.getElementById('order').value = nilai.replace(a + " ", "");
+          }
+          </script>
+      <?php
+        $sql2     = mysqli_query($connect,"select * from event");
+        while($query3=mysqli_fetch_array($sql2)){
+      ?>
+  <div class="control-group">
+    <label class="control-label">Jadwal Event : <?php echo $query3['eventdate']?></label>
+    <div class="controls">
+      <input type="hidden" class="form-control" name="date_event" value="<?php echo $query3['id_event']?>"><br>
+        <?php } ?>
+    </div>
   </div>
-<?php } ?>
+    <input type="hidden" name="id_user" value="<?php echo $_SESSION['id'];?>"><br>
+    <input type="hidden" name="tanggal" value="<?php echo $tgl ?>"><br>
+    <input type="submit" name="submit" Value="Submit" class="btn btn-success"/>
 
+    <?php include 'user/booking.php';?>
+    </form>
+    </div>
+  </div>
 </div>
-<input type="hidden" name="id_user" value="<?php echo $_SESSION['id'];?>"><br>
-<input type="hidden" name="tanggal" value="<?php echo $tgl ?>"><br>
-<label class="control-group">Stand yang dipilih: </label>
-<input type="text" id="order" name="total" class="form-control" value="" readonly="readonly" />
-
-<script>
-function myFunction(a){
-  if(a != null){
-    document.getElementById('order').value += a + " ";
-  }
-}
-function functionUnchek(a){
-  var nilai = document.getElementById('order').value;
-  document.getElementById('order').value = nilai.replace(a + " ", "");
-}
-</script>
-<input type="submit" name="submit" Value="Submit"/>
-<?php include 'user/booking.php';?>
-</form>
-  </div>
+</div>
 
 </section>
 <!-- Booking Stand section -->
@@ -422,7 +420,6 @@ function functionUnchek(a){
         </div>
         <div class="tab-pane fade" id="signup">
             <form class="form-horizontal" action="user/register.php" method="post">
-                <input type="text" value="<?php echo $id_user; ?>" name="id_user" />
             <fieldset>
             <!-- Sign Up Form -->
             <!-- Text input-->
@@ -476,29 +473,31 @@ function functionUnchek(a){
   </div>
 </div>
 
+<!--MODAL Account-->
 <?php
 $ceknama=mysqli_query($connect,"select * from user where id_user='$_SESSION[id]' ");
 $ceknamalagi=mysqli_fetch_array($ceknama);
+$tgl2=date('l, d-m-Y, h:i:a');
 ?>
 <div class="modal fade bs-modal-md" id="akun" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
         <div class="row">
-        <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-          <A href="edit.html" >Edit Profile</A>
-          <A href="edit.html" >Logout</A>
-         <br>
-  <p class=" text-info">May 05,2014,03:00 pm </p>
-        </div>
+          <div class="services-content">
+            <p class=" text-info" align="right"><?php echo $tgl2 ?></p>
+            <span class="pull-right">
+            <a href="#" data-toggle="modal" data-target="#editakun" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i> EDIT PROFILE</a>
+          </span>
+          <br>
+          <div class="panel-heading">
+            <h3 class="panel-title"><b><?php echo $ceknamalagi['nama_user'];?></b></h3>
+          </div>
           <div class="col-xs-12" >
             <div class="panel panel-info">
-              <div class="panel-heading">
-                <h3 class="panel-title"><?php echo $ceknamalagi['nama_user'];?></h3>
-              </div>
-              <div class="panel-body">
+            </div>
                 <div class="row">
                   <div class="col-md-3 col-lg-3 " align="center">
-                  <img src="" class="img-circle img-responsive fa fa-user" >
+                  <img src="./images/user.png" class="img-rounded img-responsive" >
                   </div>
                   <div class=" col-md-9 col-lg-9 ">
                     <table class="table table-user-information">
@@ -538,16 +537,14 @@ $ceknamalagi=mysqli_fetch_array($ceknama);
                       </tbody>
                     </table>
 
-                    <a href="#" data-toggle="modal" data-target="#editakun" class="btn btn-primary">Edit Profile</a>
-                    <a href="#booking" class="btn btn-primary">Booking</a>
                   </div>
                 </div>
               </div>
                    <div class="panel-footer">
-                          <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                          <a href="#contact" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                          <a href="#booking" class="btn btn-primary" >Booking Now</a>
                           <span class="pull-right">
-                              <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                              <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                              <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i></a>
                           </span>
                       </div>
             </div>
@@ -562,11 +559,11 @@ $ceknamalagi=mysqli_fetch_array($ceknama);
   <div class="modal-dialog modal-md">
     <div class="modal-content">
         <div class="row">
-        <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-          <A href="edit.html" >Edit Profile</A>
-          <A href="edit.html" >Logout</A>
-         <br>
-  <p class=" text-info">May 05,2014,03:00 pm </p>
+          <br>
+        <div class="col-md-3  toppad  pull-right">
+          <span>
+            <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-remove"> CLOSE</i></a>
+         </span>
         </div>
           <div class="col-xs-12" >
             <div class="panel panel-info">
@@ -576,8 +573,7 @@ $ceknamalagi=mysqli_fetch_array($ceknama);
               <div class="panel-body">
                 <div class="row">
                   <div class="col-md-3 col-lg-3 " align="center">
-                  <img src="" class="img-circle img-responsive">
-                  <i class="glyphicon glyphicon-user"></i>
+                  <img src="./images/user.png" class="img-circle img-responsive">
                   </div>
                   <form class="form-horizontal" action="user/edituser.php" method="post">
                   <div class=" col-md-9 col-lg-9 ">
@@ -640,11 +636,6 @@ $ceknamalagi=mysqli_fetch_array($ceknama);
                 </div>
               </div>
                    <div class="panel-footer">
-                          <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                          <span class="pull-right">
-                              <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                              <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                          </span>
                       </div>
             </div>
           </div>
