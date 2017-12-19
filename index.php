@@ -29,15 +29,15 @@ include("user/koneksi.php");
 <body>
 <!-- header section -->
 <section class="banner" role="banner">
-  <header id="header">
-    <div class="header-content clearfix"> <a class="logo" href="index.php"><i class="fa fa-shopping-cart"> TAMU</i></a>
+   <header id="header">
+    <div class="header-content clearfix"> <a class="logo" href="index.php"><i class="fa fa-study"> TAMU</i></a>
       <nav class="navigation" role="navigation">
         <ul class="primary-nav">
 		 <li><a href="#banner">Home</a></li>
           <li><a href="#event">Event</a></li>
           <li><a href="#content-3-10">About</a></li>
           <li><a href="#gallery">Gallery</a></li>
-          <!--<li><a href="#testimonials">Testimonials</a></li>-->
+            <li><a href="#contact">Contact</a></li>
         <?php if (!isset($_SESSION['id'])) { ?>
           <li><a href="#" data-toggle="modal" data-target="#login">Booking Stand</a></li>
           <li><a href="#" data-toggle="modal" data-target="#login">Login</a></li>
@@ -58,7 +58,7 @@ include("user/koneksi.php");
 
             <?php } ?>
 
-          <li><a href="#contact">Contact</a></li>
+          
         </ul>
       </nav>
       <a href="#" class="nav-toggle">Menu<span></span></a> </div>
@@ -101,8 +101,8 @@ include("user/koneksi.php");
 <section id="intro" class="section intro">
   <div class="container">
     <div class="col-md-8 col-md-offset-2 text-center">
-      <h3>Looking to grow your business?</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h3>join us, and be a successful entrepreneur.</h3>
+      
     </div>
   </div>
 </section>
@@ -166,16 +166,29 @@ $cekevent=mysqli_fetch_array($sql);
 <section class="video-section">
   <div class="container">
     <div class="row">
-            <div id="content24" data-section="content-24" class="data-section">
+            <div id="content15" data-section="content-15" class="data-section">
     		<div class="col-md-6">
 				<h3 class="eidtContent">Content Video</h3>
-				<p class="eidtContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-   				<p class="editContent">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-				<p class="editContent">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                
+
     		</div>
+ <?php 
+function youtube($url){
+	$link=str_replace('http://www.youtube.com/watch?v=', '', $url);
+	$link=str_replace('https://www.youtube.com/watch?v=', '', $link);
+	$data='<object width="600" height="300" data="http://www.youtube.com/v/'.$link.'" type="application/x-shockwave-flash">
+	<param name="src" value="http://www.youtube.com/v/'.$link.'" />
+	</object>';
+	return $data;
+}
+                ?>
+ <?php
+		echo youtube("https://www.youtube.com/watch?v=MiNoCgyiDBg");
+
+?>
 			<div class="col-md-6">
-				<div class="embed-responsive embed-responsive-16by9">
-				  <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/146742515?badge=0" allowfullscreen=""></iframe>
+				<div class="embed-responsive embed-responsive-7by9">
+
 				</div>
 			</div>
     	</div>
@@ -190,12 +203,12 @@ $cekevent=mysqli_fetch_array($sql);
   <div class="container-fluid">
     <div class="section-header">
                 <h2 class="wow fadeInDown animated">Gallery</h2>
-                <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
+                <p class="wow fadeInDown animated">Kegiatan Seputar Tamu Poltek</p>
             </div>
     <div class="row no-gutter">
       <?php
 
-				$cek = mysqli_query($connect,"select * from galeri LIMIT 8");
+				$cek = mysqli_query($connect,"Select * from galeri order by id_galeri desc LIMIT 8");
 				while($cek2=mysqli_fetch_assoc($cek)){
 			?>
       <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/galeri/<?php echo $cek2['gambar'];?>" class="work-box"> <img src="images/galeri/<?php echo $cek2['gambar'];?>" alt="">
@@ -296,7 +309,7 @@ $cekevent=mysqli_fetch_array($sql);
       <div class="flexslider">
         <ul class="slides">
           <?php
-          $sql=mysqli_query($connect,"Select * from kritiksaran LIMIT 3");
+          $sql=mysqli_query($connect,"Select * from kritiksaran order by id_kritik desc LIMIT 3");
           while($query=mysqli_fetch_array($sql)){ ?>
           <li>
             <div class="col-md-12">
