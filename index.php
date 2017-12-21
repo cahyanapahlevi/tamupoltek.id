@@ -29,15 +29,16 @@ include("user/koneksi.php");
 <body>
 <!-- header section -->
 <section class="banner" role="banner">
-   <header id="header">
-    <div class="header-content clearfix"> <a class="logo" href="index.php"><i class="fa fa-study"> TAMU</i></a>
+  <header id="header">
+    <div class="header-content clearfix"> <a class="logo" href="index.php"><i class="fa fa-shopping-cart"> TAMU</i></a>
       <nav class="navigation" role="navigation">
         <ul class="primary-nav">
 		 <li><a href="#banner">Home</a></li>
           <li><a href="#event">Event</a></li>
           <li><a href="#content-3-10">About</a></li>
           <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <!--<li><a href="#testimonials">Testimonials</a></li>-->
         <?php if (!isset($_SESSION['id'])) { ?>
           <li><a href="#" data-toggle="modal" data-target="#login">Booking Stand</a></li>
           <li><a href="#" data-toggle="modal" data-target="#login">Login</a></li>
@@ -55,10 +56,7 @@ include("user/koneksi.php");
                   <li><a href="user/logout.php">Sign Out</a></li>
                 </ul>
             </li>
-
             <?php } ?>
-
-          
         </ul>
       </nav>
       <a href="#" class="nav-toggle">Menu<span></span></a> </div>
@@ -102,7 +100,6 @@ include("user/koneksi.php");
   <div class="container">
     <div class="col-md-8 col-md-offset-2 text-center">
       <h3>join us, and be a successful entrepreneur.</h3>
-      
     </div>
   </div>
 </section>
@@ -135,8 +132,8 @@ $cekevent=mysqli_fetch_array($sql);
     </div>
   </div>
 </section>
-
 <!-- services section -->
+
 <!--About-->
 <section id="content-3-10" class="content-block data-section nopad content-3-10">
 	<div class="image-container col-sm-6 col-xs-12 pull-left">
@@ -163,32 +160,32 @@ $cekevent=mysqli_fetch_array($sql);
 
 <!-- package section -->
 <div id="collapse1" class="collapse">
-<section class="video-section">
+<section class="video-section intro">
   <div class="container">
     <div class="row">
-            <div id="content15" data-section="content-15" class="data-section">
+            <div id="content24" data-section="content-24" class="data-section">
     		<div class="col-md-6">
 				<h3 class="eidtContent">Content Video</h3>
-                
-
+				<p class="eidtContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+   				<p class="editContent">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+				<p class="editContent">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
     		</div>
- <?php 
-function youtube($url){
-	$link=str_replace('http://www.youtube.com/watch?v=', '', $url);
-	$link=str_replace('https://www.youtube.com/watch?v=', '', $link);
-	$data='<object width="600" height="300" data="http://www.youtube.com/v/'.$link.'" type="application/x-shockwave-flash">
-	<param name="src" value="http://www.youtube.com/v/'.$link.'" />
-	</object>';
-	return $data;
-}
-                ?>
- <?php
-		echo youtube("https://www.youtube.com/watch?v=MiNoCgyiDBg");
-
-?>
 			<div class="col-md-6">
-				<div class="embed-responsive embed-responsive-7by9">
+				<div class="embed-responsive embed-responsive-16by9">
+          <?php
+         function youtube($url){
+           $link=str_replace('http://www.youtube.com/watch?v=', '', $url);
+           $link=str_replace('https://www.youtube.com/watch?v=', '', $link);
+           $data='<object width="600" height="300" data="http://www.youtube.com/v/'.$link.'" type="application/x-shockwave-flash">
+           <param name="src" value="http://www.youtube.com/v/'.$link.'" />
+           </object>';
+           return $data;
+         }
+                         ?>
+          <?php
+             echo youtube("https://www.youtube.com/watch?v=MiNoCgyiDBg");
 
+         ?>
 				</div>
 			</div>
     	</div>
@@ -208,7 +205,7 @@ function youtube($url){
     <div class="row no-gutter">
       <?php
 
-				$cek = mysqli_query($connect,"Select * from galeri order by id_galeri desc LIMIT 8");
+				$cek = mysqli_query($connect,"select * from galeri order by id_galeri desc LIMIT 8");
 				while($cek2=mysqli_fetch_assoc($cek)){
 			?>
       <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/galeri/<?php echo $cek2['gambar'];?>" class="work-box"> <img src="images/galeri/<?php echo $cek2['gambar'];?>" alt="">
@@ -228,7 +225,7 @@ function youtube($url){
 <!-- Booking Stand Section -->
 <?php if (isset($_SESSION['id'])) { ?>
   <?php
-   $tgl=date('Y-m-d');
+   $tgl=date('l, Y-m-d ,h:i a');
    #echo $tgl;
    ?>
 <section id="booking" class="section teams">
@@ -242,55 +239,39 @@ function youtube($url){
   <div class="services-content">
   <h4>Select Your Stand:</h4>
   <form action="user/booking.php" method="post">
-  <label class="control-group">Bagian Depan (Jalan Mastrip)</label>
-    <div class="control-group">
-    <?php
-      $sql     = mysqli_query($connect,"select * from stand");
-      while($query2=mysqli_fetch_array($sql)){
-    ?>
-      <div class="checkbox">
-      <label>
-      <?php if(!isset($query2['id_user'])){ ?>
-        <input type="checkbox" onclick="if(this.checked){myFunction(this.value)}else{functionUnchek(this.value)}" name="check_list[]" value="<?php echo $query2['id_stand'];?>"><?php echo $query2['id_stand'];?></label><br>
-      <?php }else{ ?>
-        <input type="checkbox" name="check_list[]" disabled> <?php echo $query2['id_stand'];?> Sudah DiBooking
+    <label class="control-group"></label>
+      <div class="control-group">
+        <?php
+          $tgl_event='';
+          $sql2     = mysqli_query($connect,"select * from event ORDER BY eventdate DESC");
+          while($query3=mysqli_fetch_array($sql2)){
+            $tgl_event=$query3['eventdate'];
+        ?>
+      <div class="control-group">
+        <label class="control-label">Jadwal Event : <?php echo $query3['eventdate']?></label>
+        <div class="controls">
+          <input type="hidden" class="form-control" name="date_event" value="<?php echo $query3['id_event']?>"><br>
+            <?php } ?>
+        </div>
+      </div>
+      <?php
+        $sql     = mysqli_query($connect,"SELECT stand.id_stand FROM stand WHERE NOT EXISTS (SELECT * FROM detail_booking, event,booking WHERE detail_booking.id_stand = stand.id_stand and booking.id_event=event.id_event and event.eventdate='$tgl_event')");
+        while($query2=mysqli_fetch_array($sql)){
+      ?>
+        <div class="checkbox">
+        <label>
+          <input type="checkbox" name="check_list[]" value="<?php echo $query2['id_stand'];?>"> <?php echo $query2['id_stand'];?>
+        </div>
       <?php } ?>
       </div>
-    <?php } ?>
-    </div>
-    <div class="control-group">
-      <label class="control-label">Stand yang dipilih: </label>
-      <div class="controls">
-    <input type="text" id="order" name="total" class="form-control" value="" readonly="readonly" /><br>
+      <div class="control-group">
+        <label class="control-label">Tanggal Booking</label>
+        <input type="text" class="form-control" name="tanggal" value="<?php echo $tgl ?>" readonly>
+        <input type="hidden" class="form-control" name="status" value="NOT PAID">
+        <input type="hidden" name="id_user" value="<?php echo $_SESSION['id'];?>"><br>
       </div>
-    </div>
-          <script>
-          function myFunction(a){
-            if(a != null){
-              document.getElementById('order').value += a + " ";
-            }
-          }
-          function functionUnchek(a){
-            var nilai = document.getElementById('order').value;
-            document.getElementById('order').value = nilai.replace(a + " ", "");
-          }
-          </script>
-      <?php
-        $sql2     = mysqli_query($connect,"select * from event");
-        while($query3=mysqli_fetch_array($sql2)){
-      ?>
-  <div class="control-group">
-    <label class="control-label">Jadwal Event : <?php echo $query3['eventdate']?></label>
-    <div class="controls">
-      <input type="hidden" class="form-control" name="date_event" value="<?php echo $query3['id_event']?>"><br>
-        <?php } ?>
-    </div>
-  </div>
-    <input type="hidden" name="id_user" value="<?php echo $_SESSION['id'];?>"><br>
-    <input type="hidden" name="tanggal" value="<?php echo $tgl ?>"><br>
-    <input type="submit" name="submit" Value="Submit" class="btn btn-success"/>
-
-    <?php include 'user/booking.php';?>
+      <input type="submit" name="submit" Value="Book Now" class="btn btn-success"/>
+      <?php include 'user/booking.php';?>
     </form>
     </div>
   </div>
@@ -487,14 +468,16 @@ function youtube($url){
 </div>
 
 <!--MODAL Account-->
-<?php
-$ceknama=mysqli_query($connect,"select * from user where id_user='$_SESSION[id]' ");
-$ceknamalagi=mysqli_fetch_array($ceknama);
-$tgl2=date('l, d-m-Y, h:i:a');
-?>
+
 <div class="modal fade bs-modal-md" id="akun" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
+      <?php
+      $id = $_SESSION['id'];
+      $ceknama=mysqli_query($connect,"select * from user where id_user='$id' ");
+      $ceknamalagi=mysqli_fetch_array($ceknama);
+      $tgl2=date('l, d-m-Y, h:i:a');
+      ?>
         <div class="row">
           <div class="services-content">
             <p class=" text-info" align="right"><?php echo $tgl2 ?></p>

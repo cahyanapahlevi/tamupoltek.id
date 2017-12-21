@@ -32,13 +32,19 @@ if (isset($_POST['submit'])) {
 $id=$idbooking;
 $id_user = $_POST['id_user'];
 $tgl     = $_POST['tanggal'];
+$status = $_POST['status'];
 $event  = $_POST['date_event'];
+$stand  = $_POST['check_list'];
+
 if(!empty($_POST['check_list'])) {
   $checked_count = count($_POST['check_list']);
   foreach($_POST['check_list'] as $selected) {
-$query  = "INSERT INTO `booking` (`id_booking`,`date_booking`,`status`,`id_user`,`id_event`,`id_stand`) VALUES ('$id','$tgl','','$id_user','$event','$selected')";
+$query  = "INSERT INTO `booking` (`id_booking`,`date_booking`,`status`,`id_user`,`id_event`,`jumlah_stand`) VALUES ('$id','$tgl','$status','$id_user','$event','$checked_count')";
 $simpan = mysqli_query($connect,$query) or die(mysqli_error($simpan));
     if($simpan){
+        for($x=0;$x<$checked_count;$x++){
+      	mysqli_query($connect,"INSERT INTO `detail_booking` values('$id','$stand[$x]')");
+        }
     echo "<script language=\"javascript\">\n";
     echo "alert(\"Berhasil, Booking !\")\n";
     echo "window.location=\"../index.php\" ";

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 19 Des 2017 pada 02.09
+-- Generation Time: 21 Des 2017 pada 06.53
 -- Versi Server: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -50,16 +50,42 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`, `phone_admin`, `jadwal_
 
 CREATE TABLE IF NOT EXISTS `booking` (
   `id_booking` varchar(5) NOT NULL,
-  `date_booking` date NOT NULL,
+  `date_booking` varchar(50) NOT NULL,
   `status` varchar(10) NOT NULL,
   `id_user` varchar(5) NOT NULL,
   `id_event` varchar(5) NOT NULL,
-  `id_stand` varchar(5) NOT NULL,
+  `jumlah_stand` int(2) NOT NULL,
   PRIMARY KEY (`id_booking`),
-  KEY `id_stand` (`id_stand`),
+  KEY `id_stand` (`jumlah_stand`),
   KEY `id_event` (`id_event`),
   KEY `id_user` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `booking`
+--
+
+INSERT INTO `booking` (`id_booking`, `date_booking`, `status`, `id_user`, `id_event`, `jumlah_stand`) VALUES
+('b0001', 'Wednesday, 2017-12-20 ,05:24 pm', 'PAID', 'u0004', 'e0001', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `detail_booking`
+--
+
+CREATE TABLE IF NOT EXISTS `detail_booking` (
+  `id_booking` varchar(5) NOT NULL,
+  `id_stand` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `detail_booking`
+--
+
+INSERT INTO `detail_booking` (`id_booking`, `id_stand`) VALUES
+('b0001', 'A01'),
+('b0001', 'A05');
 
 -- --------------------------------------------------------
 
@@ -78,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `event` (
 --
 
 INSERT INTO `event` (`id_event`, `eventdate`) VALUES
-('e0001', '2017-12-01');
+('e0001', '2017-12-19');
 
 -- --------------------------------------------------------
 
@@ -184,8 +210,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id_user`, `nama_user`, `email_user`, `pass_user`, `phone_user`, `alamat_user`, `nama_usaha`, `jenis_usaha`, `pekerjaan`) VALUES
 ('u0004', 'Nico Libriawan', 'nicklibra24@gmail.com', '1234', NULL, NULL, NULL, NULL, NULL),
-('u0005', 'Zakiya Underwater', 'zakia@gmail.com', '1234', NULL, NULL, NULL, NULL, NULL),
-('u0006', 'zakia', 'zakia@gmail.com', '12345', NULL, NULL, NULL, NULL, NULL);
+('u0005', 'Zakiya Underwater', 'zakia@gmail.com', '1234', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -196,7 +221,6 @@ INSERT INTO `user` (`id_user`, `nama_user`, `email_user`, `pass_user`, `phone_us
 --
 ALTER TABLE `booking`
   ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`id_stand`) REFERENCES `stand` (`id_stand`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`id_event`) REFERENCES `event` (`id_event`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -17,9 +17,9 @@ include "./koneksi.php";
                     <th>Id</th>
                     <th>Tanggal Booking</th>
                     <th>Status</th>
-                    <th>ID USER</th>
-                    <th>ID_EVENT</th>
-                    <th>ID_STAND</th>
+                    <th>Id User</th>
+                    <th>Id Event</th>
+                    <th>Jumlah Stand</th>
                     <th></th>
                   </thead>
                   <tbody>
@@ -33,8 +33,11 @@ include "./koneksi.php";
                         <td><?php echo $data['status']?></td>
                         <td><?php echo $data['id_user']?></td>
                         <td><?php echo $data['id_event']?></td>
-                        <td><?php echo $data['id_stand']?></td>
+                        <td><?php echo $data['jumlah_stand']?></td>
                         <td>
+                          <a onclick="if(confirm('Apakah anda yakin ingin Mengupdate data ini ??'))
+                          { location.href='menu/proseseditbooking.php?id=<?php echo $data['id_booking'];?>' }" class="btn btn-success">
+                          <i class="fa fa-check"></i>PAID</a>
                           <a onclick="if(confirm('Apakah anda yakin ingin menghapus data ini ??'))
                           { location.href='menu/deletebooking.php?id=<?php echo $data['id_booking'];?>' }" class="btn btn-danger">
                           <i class="fa fa-trash"></i></a>
