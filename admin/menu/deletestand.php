@@ -1,7 +1,7 @@
 
 <?php
 include '../koneksi.php';
-$sql="UPDATE `stand` SET `status` = '';";
+$sql="UPDATE `detail_booking` SET `id_booking` = '',`id_stand` = '';";
 $query=mysqli_query($connect,$sql) or die(mysql_error($query));
 if($query){
     echo "<script language=\"javascript\">\n";

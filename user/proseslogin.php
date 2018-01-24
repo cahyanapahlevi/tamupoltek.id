@@ -13,7 +13,7 @@ include("koneksi.php");
 		$_SESSION['id']=$dtuser['id_user'];//membuat session(kunci) untuk kehalaman berikutnya dengan acuan field"nama_pelanggan" dari variabel dtUser
 			echo "<script language=\"javascript\">\n";
 			echo "alert(\"Berhasil!!\")\n";
-			echo "window.location=\"../index.php\" ";
+			echo "window.location=\"../\" ";
 			echo "</script>";
 		}else {
 			echo "<script language=\"javascript\">\n";

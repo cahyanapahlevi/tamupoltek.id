@@ -71,15 +71,21 @@ include "./koneksi.php";
         <div class="card">
             <div class="content">
                 <div class="row">
+                  <?php
+                  $sql3 = "SELECT * FROM booking";
+                  $query = mysqli_query($connect,$sql3);
+                  $count = mysqli_num_rows($query);
+                  ?>
+                  <a href="home.php?home=booking">
                     <div class="col-xs-5">
                         <div class="icon-big icon-danger text-center">
-                            <i class="ti-pulse"></i>
+                            <i class="ti-money"></i>
                         </div>
                     </div>
                     <div class="col-xs-7">
                         <div class="numbers">
-                            <p>Errors</p>
-                            23
+                            <p>Booking List</p>
+                            <?php echo $count;?>
                         </div>
                     </div>
                 </div>
@@ -89,6 +95,7 @@ include "./koneksi.php";
                         <i class="ti-timer"></i> In the last hour
                     </div>
                 </div>
+              </a>
             </div>
         </div>
     </div>

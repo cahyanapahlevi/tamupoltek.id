@@ -43,7 +43,7 @@ include("user/koneksi.php");
           <li><a href="#" data-toggle="modal" data-target="#login">Booking Stand</a></li>
           <li><a href="#" data-toggle="modal" data-target="#login">Login</a></li>
         <?php } else { ?>
-          <li><a href="#booking">Booking Stand</a></li>
+          <li><a href="user/home.php?page=booking">Booking Stand</a></li>
             <li class="dropdown">
             <?php
             $ceknama=mysqli_query($connect,"select * from user where id_user='$_SESSION[id]' ");
@@ -52,7 +52,7 @@ include("user/koneksi.php");
               <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $ceknamalagi['nama_user'];?>
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#" data-toggle="modal" data-target="#akun">Account</a></li>
+                  <li><a href="user/home.php?page=main">Account</a></li>
                   <li><a href="user/logout.php">Sign Out</a></li>
                 </ul>
             </li>
@@ -117,16 +117,32 @@ $cekevent=mysqli_fetch_array($sql);
                 <p class="wow fadeInDown">Jadwal Tamu Poltek</p>
             </div>
     <div class="row" >
-      <div class="col-md-6 col-sm-6 services text-center wow pulse" data-wow-duration="2s" data-wow-iteration="300"> <span class="icon icon-strategy"></span>
+      <div class="col-md-6 col-sm-6 services text-center wow pulse" data-wow-duration="2s" data-wow-iteration="300" style="margin-top:50px">
+        <span class="icon icon-strategy"></span>
         <div class="services-content">
           <h5>Jadwal Event Terbaru</h5>
           <p>Date : <?php echo $cekevent['eventdate']; ?></p>
         </div>
       </div>
-      <div class="col-md-6 col-sm-6 services text-center wow pulse" data-wow-duration="4s" data-wow-iteration="300"> <span class="icon icon-tools"></span>
+      <div class="col-md-6 col-sm-6 services text-center wow pulse" data-wow-duration="4s" data-wow-iteration="300">
+        <!--<span class="icon icon-tools"></span>-->
         <div class="services-content">
-          <h5>Development</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu libero scelerisque ligula sagittis faucibus eget quis lacus.</p>
+          <div class="embed-responsive embed-responsive-16by9">
+            <?php
+           function youtube1($url){
+             $link=str_replace('http://www.youtube.com/watch?v=', '', $url);
+             $link=str_replace('https://www.youtube.com/watch?v=', '', $link);
+             $data='<object width="600" height="300" data="http://www.youtube.com/v/'.$link.'" type="application/x-shockwave-flash">
+             <param name="src" value="http://www.youtube.com/v/'.$link.'" />
+             </object>';
+             return $data;
+           }
+                           ?>
+            <?php
+               echo youtube1("https://www.youtube.com/watch?v=QbGsCNNPMfk&rel=0");
+
+           ?>
+  				</div>
         </div>
       </div>
     </div>
@@ -166,10 +182,9 @@ $cekevent=mysqli_fetch_array($sql);
             <div id="content24" data-section="content-24" class="data-section">
     		<div class="col-md-6">
 				<h3 class="eidtContent">Content Video</h3>
-				<p class="eidtContent">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-   				<p class="editContent">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-				<p class="editContent">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-    		</div>
+				<p class="eidtContent">Taman usaha Politeknik Negeri Jember atau yang lebih sering dikenal dengan sebutan Tamu Poltek merupakan media atau sarana untuk mewadai inspirasi kewirausahaan mahasiswa. Tamu Poltek ini didirikan pada April 2016.
+          Tujuan didirikannya Tamu Poltek adalah untuk meningkatkan jiwa kewirausahaan mahasiswa. Ide Tamu Poltek  dicetuskan oleh ketua Kewirausahaan Ir. Triono Bambang Irawan, Mp. Ide ini diintegrasi dalam  mata kuliah kewirausahaan .</p>
+   				</div>
 			<div class="col-md-6">
 				<div class="embed-responsive embed-responsive-16by9">
           <?php
@@ -225,6 +240,7 @@ $cekevent=mysqli_fetch_array($sql);
 <!-- Booking Stand Section -->
 <?php if (isset($_SESSION['id'])) { ?>
   <?php
+  date_default_timezone_set('Asia/Jakarta');
    $tgl=date('l, Y-m-d ,h:i a');
    #echo $tgl;
    ?>
@@ -243,7 +259,7 @@ $cekevent=mysqli_fetch_array($sql);
       <div class="control-group">
         <?php
           $tgl_event='';
-          $sql2     = mysqli_query($connect,"select * from event ORDER BY eventdate DESC");
+          $sql2     = mysqli_query($connect,"select * from event ORDER BY eventdate DESC LIMIT 1");
           while($query3=mysqli_fetch_array($sql2)){
             $tgl_event=$query3['eventdate'];
         ?>
@@ -351,7 +367,7 @@ $cekevent=mysqli_fetch_array($sql);
     			Jawa Timur 68121<br>
     			<abbr title="Phone">Tel:</abbr> (604) 555-4321
     		</address>
-			  © 2018 Company Name. Template by <a target="_blank" href="http://webthemez.com/interior-design/" title="Bootstrap Themes and HTML Templates">WebThemez.com</a>
+			  © 2018 Huge Team. Coorporation <a target="_blank" href="index.php" title="TAMU POLTEK">Kewirausahaan</a>
 	 </div>
 	 </div>
 </div>
@@ -475,7 +491,9 @@ $cekevent=mysqli_fetch_array($sql);
       <?php
       $id = $_SESSION['id'];
       $ceknama=mysqli_query($connect,"select * from user where id_user='$id' ");
+      $cekbooking=mysqli_query($connect,"SELECT * FROM detail_booking,event,booking WHERE booking.id_event=event.id_event and detail_booking.id_booking=booking.id_booking and id_user='$id'");
       $ceknamalagi=mysqli_fetch_array($ceknama);
+      $cekbookinglagi=mysqli_fetch_array($cekbooking);
       $tgl2=date('l, d-m-Y, h:i:a');
       ?>
         <div class="row">
@@ -532,8 +550,21 @@ $cekevent=mysqli_fetch_array($sql);
 
                       </tbody>
                     </table>
-
                   </div>
+
+                  <?php if(isset($cekbookinglagi['id_booking']) && ($cekbookinglagi['status']=="NOT PAID")){
+                    echo "Status Pemesanan Stand :\n";
+                    echo $cekbookinglagi['status'];
+                    echo "<br>";
+                    echo "Tanggal Event :\n";
+                    echo $cekbookinglagi['eventdate'];
+                    echo "<br>";
+                    echo "Jumlah Stand :\n ";
+                    echo $cekbookinglagi['jumlah_stand'];
+                    echo "<br><br>";
+                    echo "<strong>NB: Silahkan segera menghubungi ADMIN Tamu Poltek<br>";
+                    echo "untuk Konfirmasi Pembayaran</strong>";
+                  }?>
                 </div>
               </div>
                    <div class="panel-footer">

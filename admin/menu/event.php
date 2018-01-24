@@ -43,7 +43,7 @@ $id = nomor();
             <div class="col-md-10">
                 <h5>Inputkan Tanggal yang diinginkan :</h5>
               <form role="form" action="menu/addevent.php" method="post" enctype="multipart/form-data">
-                <input type="text" value="<?php echo $id; ?>" name="id_event" />
+                <input type="hidden" value="<?php echo $id; ?>" name="id_event" />
                   <div class="row">
                       <div class="col-md-10">
                           <div class="form-group">
