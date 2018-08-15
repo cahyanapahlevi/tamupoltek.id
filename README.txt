@@ -1,9 +1,8 @@
 Credits :
 --------- 
+created by:
+1. Zakiyatul mashuro
+2. Nico libryawan luandy
+3. Cahyana ahmad pahlevi
+using template from http://webthemez.com 
 
-=> Design & developed: "WebThemez"  http://webthemez.com 
-=> Bootstrap : http://getbootstrap.com/
-=> Fontawesome : https://fortawesome.github.io/Font-Awesome/
-=> Fonts : https://www.google.com/fonts
-=> Images : https://unsplash.com/ , https://www.pexels.com/ and https://pixabay.com/
-=> Carousel : http://owlgraphic.com/owlcarousel/
